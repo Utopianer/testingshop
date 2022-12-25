@@ -23,6 +23,18 @@ body {
 .navbar {
   padding: 1em 1.5em !important;
 }
+.navbar.odd {
+  border-bottom: 1px solid #8b817b;
+}
+.navbar .nav-link.mainBtn {
+  margin-top: 0;
+  background-color: #faedd7;
+  border-radius: 10px;
+  padding: 0.8em 4em !important;
+  text-align: center;
+  font-weight: 700;
+  color: #050407;
+}
 .navbar .nav-link {
   color: #faedd7;
   transition: 200ms all ease-in-out;
@@ -132,6 +144,28 @@ body {
   text-transform: capitalize;
   font-weight: 800;
 }
+.subHeading {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.smText {
+  color: white;
+  font-weight: 200;
+}
+.mainBtn.light {
+  background: #faedd7;
+  border-radius: 10px;
+}
+.mainBtn.light:hover {
+  background: #4a4555;
+  color: white;
+}
+.mainBtn.dark {
+  background: #4a4555;
+  border-radius: 10px;
+  color: white;
+}
 .infinitySection .imageLink {
   display: inline-block;
   text-decoration: none;
@@ -214,7 +248,7 @@ body {
 .hamburger .line {
   width: 21px;
   height: 3px;
-  background-color: white;
+  background-color: #faedd7;
   display: block;
   margin: 4px auto;
   border-radius: 30px;
@@ -414,7 +448,7 @@ body.home {
 }
 body.infinityPage {
   min-height: 100vh;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 /* Home Section */
@@ -457,10 +491,685 @@ body.infinityPage {
 .homeSection .homeSocialLink:hover {
   transform: translateY(-8px);
 }
+
+/* Burn Oven Page */
+.oddBgBody {
+  background-image: url("../img/bg-2.png");
+  background-size: cover;
+}
+
+/* Burn Oven Section */
+.burnOvenSection {
+  padding: 2em 0;
+}
+.burnOvenSection .itemsContainer {
+  border-radius: 10px;
+  transition: 250ms all ease-in-out;
+  background-color: rgba(17, 15, 23, 0.7);
+  border: 1px solid #292437;
+  backdrop-filter: blur(8.5px);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 2em 1em;
+}
+.burnOvenSection .itemsContainer:hover {
+  background-color: rgba(17, 15, 23, 0.9);
+  border: 1px solid #fdc500;
+  box-shadow: 0px 0px 10px #ff1f00;
+}
+.burnOvenSection .itemsContainer .itemHeading {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: white;
+}
+.burnOvenSection .itemsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #292437;
+  padding-bottom: 0.6em;
+}
+.commonHeading {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+.commonText {
+  font-size: 0.7em;
+  font-weight: 300;
+  color: white;
+}
+.commonText span {
+  font-weight: 700;
+}
+.burnOvenSection .itemsContainer .itemImg {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: 250ms all ease-in-out;
+}
+.burnOvenSection .itemsContainer .itemImageParent:hover .itemImg {
+  border: 1px solid #fdc500;
+  box-shadow: 0px 0px 10px #ff1f00;
+}
+.burnOvenSection .itemsContainer .itemContainerBody {
+  margin: 0.8em 0;
+  padding-right: 0.7em;
+  height: 520px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+/* burn Oven Pre Connect */
+.burnOvenPreConnect .itemContainerBody {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.burnOvenPreConnect .itemsContainer .itemHeading,
+.burnOvenPreConnect .itemContainerFooter .itemFooterHeading,
+.burnOvenPreConnect .itemsContainer .footerTwo div {
+  opacity: 0.5;
+}
+
+.burnOvenPreConnect .itemContainerBody .silentText {
+  color: #292437;
+}
+.hideMenu .cartBtn {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: -0.4em;
+}
+.itemImageParent {
+  position: relative;
+}
+.itemImageParent .itemRate {
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  background-color: black;
+  color: white;
+  font-size: 0.5em;
+  font-weight: 600;
+  padding: 0.2em 0.6em;
+  border-radius: 30px;
+  display: inline-block;
+}
+.itemsContainer .itemContainerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.3em;
+}
+.itemsContainer .itemContainerFooter .itemFooterHeading {
+  font-weight: 700;
+  font-size: 0.8em;
+  color: white;
+}
+.itemsContainer .itemContainerFooter .itemFooterHeading img {
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
+.itemContainerBody::-webkit-scrollbar {
+  width: 5px;
+}
+.itemContainerBody::-webkit-scrollbar-track {
+  background: #292437;
+  border-radius: 30px;
+}
+.itemContainerBody::-webkit-scrollbar-thumb {
+  background: #f7c36f;
+  border-radius: 30px;
+}
+
+.itemContainerBody::-webkit-scrollbar-thumb:hover {
+  background: #f7c36f;
+}
+.itemImageParent .hoverCard {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #292437;
+  box-shadow: 0px 0px 15px #ffffff;
+  border-radius: 10px;
+  height: 170px;
+  width: 170px;
+}
+.burnListContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #0b090e;
+  border-radius: 10px;
+  padding: 0.4em 0.1em;
+  border: 1px solid transparent;
+  transition: 200ms all ease-in-out;
+  margin-bottom: 0.3em;
+}
+.burnListContainer:hover {
+  border-color: #292437;
+}
+.burnListContainer .burilistText {
+  font-size: 0.8em;
+  font-weight: 700;
+  color: white;
+}
+.burnListContainer .countBtn {
+  color: #4b4b4b;
+  display: inline-block;
+  text-decoration: none;
+  transition: 200ms all ease-in-out;
+}
+.burnListContainer .countBtn:hover {
+  color: white;
+}
+.burnListContainer .customCounter {
+  text-align: center;
+  width: 20%;
+}
+.burnListContainer .trashBtn {
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0.5;
+  transition: 200ms all ease-in-out;
+}
+.burnListContainer .trashBtn:hover {
+  opacity: 1;
+}
+.burnListContainer .burnImgArea {
+  width: 55%;
+}
+.burnListContainer .rightArea {
+  width: 25%;
+  text-align: right;
+  padding-right: 0.3em;
+}
+.itemsContainer .itemContainerFooter.odd .itemFooterHeading {
+  font-size: 1.1em;
+}
+.itemsContainer .footerTwo {
+  display: flex;
+  margin-top: 0.5em;
+  align-items: center;
+  justify-content: space-between;
+}
+.itemsContainer .footerTwo div {
+  font-weight: 700;
+  font-size: 0.8em;
+  color: white;
+}
+.mainBtn.lightwhite {
+  background-color: #faedd7;
+}
+.mainBtn.lightwhite.mute{
+  opacity: 0.5;
+}
+.mobileView {
+  display: none;
+}
+.desktopView {
+  display: block;
+}
+/* .burnListContainer .burnListImg {
+  width: 100%;
+} */
+
+/* Shop Page */
+.shopSection {
+  padding: 2em;
+}
+.sideMenuLinks .sideMenuLink {
+  color: rgba(250, 237, 215, 0.5);
+  font-size: 14px;
+  font-weight: 700;
+  display: block;
+  border-radius: 12px;
+  padding: 0.9em 1.5em;
+  text-decoration: none;
+  margin-bottom: 1em;
+  transition: 200ms all ease-in-out;
+}
+.sideMenuLinks .sideMenuLink.active,
+.sideMenuLink:hover {
+  background-color: #292437;
+  color: #faedd7;
+}
+.searchArea input {
+  width: 100%;
+  background: #292437;
+  border-radius: 12px;
+  padding: 0.7em 1em 0.7em 2.6em;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-weight: 0.9em;
+  color: #ada9b1;
+}
+.searchArea input::placeholder {
+  font-weight: 500;
+  font-weight: 0.9em;
+  color: #ada9b1;
+}
+.searchArea {
+  position: relative;
+}
+.searchArea img {
+  position: absolute;
+  left: 14px;
+  top: 15px;
+}
+.newestDropdown .btn-secondary.dropdown-toggle {
+  background: #292437;
+  border-radius: 10px;
+  color: #a1a1a1;
+  font-weight: 700;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  border: none;
+  width: 100%;
+  padding: 0.7em 1em;
+  box-shadow: none;
+  outline: none;
+}
+.dropdown.newestDropdown .dropdown-menu{
+  background: #110F17;
+border: 1px solid #292437;
+box-shadow: -9px 0px 24px #000000;
+border-radius: 10px;
+}
+.newestDropdown  .dropdown-item:hover{
+  background: #292437;
+color: white;
+}
+.shopCard {
+  background: #110f17;
+  border: 1px solid #292437;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.shopCard .shopCardFooter {
+  padding: 1em 1.2em;
+}
+.shopCard .category {
+  font-size: 0.8em;
+  font-weight: 300;
+  color: white;
+  margin-bottom: 0.2em;
+}
+.shopCard .cardText {
+  font-size: 0.9em;
+  color: white;
+  font-weight: 700;
+}
+.shopCard .cardText.odd {
+  margin-top: 1em;
+}
+.shopCard .cardText.odd img {
+  margin-right: 0.1em;
+}
+.shopCard .shopCardImg {
+  width: 100%;
+}
+/* item section */
+.itemBackBtn {
+  color: #faedd7 !important;
+  text-decoration: none;
+}
+.itemBackBtn:hover .fa-arrow-left-long {
+  transition: all ease-in-out 0.15s;
+  transform: translateX(-10px);
+}
+.itemBackBtn .fa-arrow-left-long {
+  margin-right: 0.5em;
+}
+.infinitySection.item .description .mainBtn {
+  width: 100%;
+}
+.infinitySection.item .description .mainText:first-child {
+  margin-bottom: 2em;
+}
+.infinitySection.item .description .descriptionBody img {
+  width: 0.8em;
+}
+.infinitySection.item .description .subHeading:first-child {
+  background: #110f17;
+  border-radius: 10px 10px 0px 0px;
+  padding: 0.8em;
+}
+.infinitySection.item .description .descriptionBody .mainHeading {
+  margin-bottom: -10px;
+}
+.infinitySection.item .description .descriptionBody {
+  background: #050407;
+  border-radius: 9.90066px;
+  padding: 0.8em;
+}
+.infinitySection.item .row {
+  align-items: initial;
+}
+
+.infinitySection.item .dropdown .btn {
+  background: #110f17;
+  border-radius: 10px;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  width: 100%;
+  padding: 1em 0.5em;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.infinitySection.item .dropdown .dropdown-menu {
+  background: #050407;
+  border-radius: 9.90066px;
+  width: 100%;
+}
+.infinitySection.item .dropdown .dropdown-item {
+  color: white;
+}
+.infinitySection.item .dropdown .dropdown-item:hover {
+  background: #110f17;
+}
+/* Account page */
+.account .navDropDown.btn {
+  background: #faedd7;
+  border-radius: 10px;
+  color: black;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.account .navDropDown.btn span {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.account .navDropDown.btn .downArrowDark {
+  transform: rotate(180deg);
+}
+.account .navbar-expand-lg .navbar-nav .dropdown-menu {
+  background: #110f17;
+  border: 1px solid #292437;
+  box-shadow: -9px 0px 24px #000000;
+  border-radius: 10px;
+  padding: 1em;
+  width: 100%;
+  margin-top: 1em;
+}
+.account .navbar-expand-lg .navbar-nav .dropdown-menu .subHeading {
+  text-align: center;
+  border-bottom: 1px solid #292437;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+.account .navbar-expand-lg .navbar-nav .dropdown-item.active {
+  background: #292437;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+}
+.account .navbar-expand-lg .navbar-nav .dropdown-item:hover {
+  background: #292437;
+  border-radius: 10px;
+  color: white;
+}
+.account .accountInfo {
+  background: #110f17;
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding: 2em;
+  padding-bottom: 1em;
+}
+.account .accountInfo img {
+  cursor: pointer;
+}
+.account .accountInfo .profileImg {
+  margin-top: -7em;
+}
+.account .accountInfo .mainText {
+  background: #110f17;
+  padding: 0.7em 0;
+}
+.account .mainHeading:first-child {
+  text-align: center;
+  margin-top: 3em;
+  margin-bottom: 0.5em;
+}
+.account .accountInfo .mainText img {
+  display: inline-block;
+  transform: scale(1.5);
+  margin-right: 0.5em;
+}
+.account .accountInfo .mainHeading {
+  background: #050407;
+  padding: 0.2em 0;
+}
+.account .accountInfo .balance {
+  text-align: center;
+  border: 2px solid #292437;
+  border-radius: 9.90066px;
+  overflow: hidden;
+}
+.account .accountInfo .balance span {
+  background: #3f3bff;
+  border-radius: 10px;
+  margin-left: 0.5em;
+  padding: 0.2em 0.5em;
+}
+.account .accountInfo .col-lg-4:nth-child(2) {
+  border-left: 1px solid #292437;
+}
+.account .accountInfo .balance .mainHeading {
+  margin-bottom: 0;
+}
+
+/* inventory */
+.inventory {
+  background: #110f17;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.inventory .inventoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #292437;
+  padding: 1em;
+}
+.inventory .inventoryBody {
+  padding: 2em;
+}
+.inventory .inventoryHeader div:first-child {
+  display: flex;
+  color: white;
+}
+.inventory .inventoryHeader div:first-child div {
+  margin-left: 1em;
+}
+
+/* Leader board */
+.leaderBoard .mainHeading {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 1em 0;
+}
+.leaderBoard .leaderBoardTable {
+  height: 600px;
+  background: #110f17;
+  border: 1px solid #292437;
+  border-radius: 10px;
+  padding: 0.5em;
+  overflow-y: auto;
+  margin-top: 1em;
+}
+.leaderBoard .leaderBoardTable::-webkit-scrollbar {
+  width: 10px;
+}
+.leaderBoard .leaderBoardTable::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 10px;
+}
+.leaderBoard .leaderBoardTable::-webkit-scrollbar-track {
+  background: #292437;
+  border-radius: 10px;
+}
+.leaderBoard .leaderBoardTable table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+.leaderBoard .leaderBoardTable thead img {
+  width: 1.3em;
+}
+
+.leaderBoard .leaderBoardTable thead .arrow {
+  width: 1em;
+}
+.leaderBoard .leaderBoardTable tbody tr {
+  background: #09070c;
+  border-radius: 10px;
+  margin-bottom: 2em;
+}
+.leaderBoard .leaderBoardTable td,
+.leaderBoard .leaderBoardTable th {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  color: white;
+}
+.leaderBoard .leaderBoardTable tr td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  text-align: end;
+  width: 2px;
+}
+.leaderBoard .leaderBoardTable tr td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.leaderBoard .leaderBoardTable tr td:nth-child(2) img {
+  margin-right: 1em;
+}
+
+/* tool tip */
+.toolTip{
+  position: relative;
+  cursor: pointer;
+}
+.toolTip::after{
+  content: '‘Like’ specific "rewarding" tweets to earn 1 Point.'; 
+  position: absolute;
+  font-size: 1em;
+  width: 250px;
+  font-weight: 200;
+  background: rgba(5, 4, 7, 0.7);
+  padding: 1.5em;
+border: 1px solid #FAEDD7;
+box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
+backdrop-filter: blur(7.5px);
+border-radius: 10px;
+display: none;
+left: -200px;
+}
+.toolTip:hover::after{
+  display: block;
+}
 /* Media Query */
 @media (max-width: 992px) {
+  .mainHeading {
+    font-size: 2em;
+  }
+  .mainBtn.mobileView {
+    display: block;
+    margin: auto;
+    background: #faedd7;
+  }
   .navbar {
     display: none;
+  }
+  .desktopView {
+    display: none;
+  }
+  .mobileView {
+    display: block;
+  }
+  .mobileView .commonHeading {
+    margin-top: 3em;
+    margin-bottom: 2em;
+  }
+  .sideMenuLinks .sideMenuLink {
+    display: none;
+  }
+  .sideMenuLinks .sideMenuLink.active {
+    display: block;
+    margin-top: 5em;
+  }
+  .searchArea {
+    display: none;
+  }
+
+  .leaderBoard .mainHeading {
+    margin-top: 3em;
+  }
+  .leaderBoard .searchArea {
+    display: block;
+  }
+  .leaderBoard th:nth-child(3),
+  .leaderBoard th:nth-child(4),
+  .leaderBoard td:nth-child(3),
+  .leaderBoard td:nth-child(4) {
+    display: none;
+  }
+  .newestDropdown .btn-secondary.dropdown-toggle {
+    width: initial;
+  }
+  .burnOvenSection {
+    padding: 0;
+  }
+  .shopSection {
+    padding: 2em 1em;
+  }
+  .shopSection .shopCard {
+    margin-bottom: 1em;
+  }
+  .account .mainHeading:first-child {
+    margin-top: 3em;
+    margin-bottom: 4em;
+  }
+  .account .accountInfo {
+    padding: 1em;
+    border-radius: 10px;
+  }
+  .inventory .inventoryBody {
+    padding: 1em;
+  }
+  .inventory .inventoryBody .shopCard {
+    margin-bottom: 1em;
+  }
+  .account .accountInfo .balance {
+    margin-top: 1em;
+  }
+  .inventory {
+    border-radius: 10px;
+    margin-top: 2em;
+  }
+  .inventoryBody .mobileView .bread span {
+    font-size: 0.8em;
+    font-weight: 100;
+    color: white;
+  }
+  .account .accountInfo .col-lg-4:nth-child(2) {
+    border: none;
+  }
+  .account .accountInfo .col-lg-4:first-child {
+    border-bottom: 2px solid #292437;
+    padding: 1em;
   }
   .infinitySection {
     text-align: center;
@@ -468,6 +1177,9 @@ body.infinityPage {
   }
   .infinitySection .row {
     flex-wrap: wrap-reverse;
+  }
+  .infinitySection.item .dropdown .btn {
+    margin-top: 2em;
   }
   .mainBtn.desktopBtn {
     display: none;
