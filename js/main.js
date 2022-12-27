@@ -27,3 +27,8 @@ $(window).scroll(function () {
     $("#mobHideMenu, #stickyNavbar").css("background", "unset");
   }
 });
+
+// load more
+function loadMore(){
+  document.getElementById("loadMore").style.display="block"
+}
