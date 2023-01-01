@@ -19,10 +19,21 @@ body {
   min-height: 100vh;
   background-color: black !important;
 }
-
+.bodyWapper{
+  padding-top: 5em;
+}
+body.vip{
+  background-image: url("../img/vipbg.png");
+  background-size: cover;
+  background-position: center;
+}
 /* Navbar */
 .navbar {
   padding: 1em 1.5em !important;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
 }
 .navbar.odd {
   border-bottom: 1px solid #8b817b;
@@ -148,7 +159,7 @@ body {
 .subHeading {
   color: white;
   font-size: 1.5em;
-  font-weight: 500;
+  font-weight: 700;
 }
 .smText {
   color: white;
@@ -178,7 +189,7 @@ body {
 .mainText {
   font-family: "Inter";
   font-weight: 400;
-  font-size: 1.1em;
+  font-size: 0.9em;
   color: white;
 }
 .mainText span {
@@ -371,7 +382,7 @@ body {
 
 /* VIP Pass Page */
 .heroSection {
-  background-image: url("../img/bg.png");
+  /* background-image: url("../img/bg.png"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -397,7 +408,7 @@ body {
 .getSection {
   padding: 2em 0;
   text-align: center;
-  background-color: #000000;
+  /* background-color: #000000; */
 }
 .getSection .headerContents .mainHeading {
   font-size: 3.1em;
@@ -501,6 +512,10 @@ body.infinityPage {
 /* Burn Oven Section */
 .burnOvenSection {
   padding: 2em 0;
+}
+.burnOvenSection .mainBtn.lightwhite{
+  position:relative;
+  z-index: 9999;
 }
 .burnOvenSection .itemsContainer {
   border-radius: 10px;
@@ -728,6 +743,7 @@ body.infinityPage {
   position: relative;
 }
 .shopCard .mainBtn.shopBtn{
+  max-width: initial;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -752,6 +768,13 @@ body.infinityPage {
   text-decoration: none;
   margin-bottom: 1em;
   transition: 200ms all ease-in-out;
+}
+.sideMenuLinks .card-body{
+  background-color: #09070C;
+  border-radius: 0px 0px 10px 10px;
+}
+.sideMenuLinks .card-body .sideMenuLink{
+  color:#ADA9B1;
 }
 .sideMenuLinks .sideMenuLink.active,
 .sideMenuLink:hover {
@@ -846,12 +869,17 @@ color: white;
 .itemBackBtn .fa-arrow-left-long {
   margin-right: 0.5em;
 }
+.infinitySection.item{
+  padding-top: 5em;
+}
 .infinitySection.item .description .mainBtn {
   max-width: initial;
   width: 100%;
 }
 .infinitySection.item .description .mainText:first-child {
   margin-bottom: 2em;
+  font-size: 0.7em;
+  font-weight: 300;
 }
 .infinitySection.item .description .descriptionBody img {
   width: 0.8em;
@@ -861,9 +889,12 @@ color: white;
   border-radius: 10px 10px 0px 0px;
   padding: 0.8em;
   text-align: start;
+  font-size: 0.9em;
+  font-weight: 700;
 }
 .infinitySection.item .description .descriptionBody .mainHeading {
   margin-bottom: -10px;
+  font-size: 1.5em;
 }
 .infinitySection.item .description .descriptionBody {
   background: #050407;
@@ -899,13 +930,14 @@ color: white;
 }
 .infinitySection.item .card-body .smText{
   font-weight: 100;
-  font-size: 0.9em;
+  font-size: 0.7em;
 }
 .infinitySection.item .card-body .mainText{
   font-weight: 300;
+  font-size: 0.9em;
 }
 .infinitySection.item .card-body .cardContainer{
-  max-height: 270px;
+  max-height: 210px;
   overflow-y: auto;
   padding-right: 1em;
   overflow-x: hidden;
@@ -980,8 +1012,6 @@ margin-bottom: 1.5em;
 .account .accountInfo {
   background: #110f17;
   border-radius: 10px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
   padding: 2em;
   padding-bottom: 1em;
 }
@@ -1005,9 +1035,9 @@ margin-bottom: 1.5em;
   transform: scale(1.5);
   margin-right: 0.5em;
 }
-.account .accountInfo .mainHeading {
+.account .accountInfo .subHeading.yourAccout {
   background: #050407;
-  padding: 0.2em 0;
+  padding: 0.5em 0;
 }
 .account .accountInfo .balance {
   text-align: center;
@@ -1030,10 +1060,10 @@ margin-bottom: 1.5em;
 
 /* inventory */
 .inventory {
+  margin-top: 2em;
   background: #110f17;
   border-radius: 10px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
+
 }
 .inventory .inventoryHeader {
   display: flex;
@@ -1059,8 +1089,11 @@ margin-bottom: 1.5em;
   text-align: center;
   text-transform: uppercase;
   margin: 1em 0;
+  margin-top: 2em;
 }
-
+.leaderBoard .rankImg{
+  width: 1.5em;
+}
 .leaderBoard .leaderBoardContainer{
   padding-right: 1em;
   padding-top: 2em;
@@ -1074,6 +1107,7 @@ margin-bottom: 1.5em;
   height: 600px;
   padding: 0.5em;
   overflow-y: auto;
+  position: relative;
 }
 .leaderBoard .leaderBoardContainer{
   overflow-x: auto;
@@ -1095,10 +1129,11 @@ margin-bottom: 1.5em;
   justify-content: space-between;
   color: white;
   padding: 0.5em 2em;
+  padding-left: 1em;
 }
 .leaderBoard .tableHeader .tableCounter{
   display: inline-block;
-  margin-right: 3.3em;
+  margin-right: 3em;
 }
 .leaderBoard .tableHeader img{
   width: 1.3em;
@@ -1155,7 +1190,11 @@ box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
 backdrop-filter: blur(7.5px);
 border-radius: 10px;
 display: none;
-left: -200px;
+left: -230px;
+z-index: 9999;
+}
+.leaderBoard .tableHeader .tableCounter.mobile{
+  display: none;
 }
 .toolTip.like::after{
   content: '‘Like’ specific "rewarding" tweets to earn 1 Point.';
@@ -1168,6 +1207,12 @@ left: -200px;
 }
 .toolTip.points::after{
   content: 'Total earned Engagement Points.';
+}
+.toolTip.retweet.tweet::after{
+  content: 'Post a Tweet or Quote including #raredough everyday.Daily Hashtag (Tweet/Quote) = 3 Points';
+}
+.toolTip.msg.user::after{
+  content: 'Post a Tweet or Quote including @raredough everyday.Daily Mention (Tweet/Quote) = 2 Points';
 }
 .toolTip:hover::after{
   display: block;
@@ -1184,6 +1229,9 @@ left: -200px;
 /* modal */
 .modal-header .btn-close{
   filter: invert(1);
+}
+.modal{
+  z-index: 999999;
 }
 #shopModal .modal-content,#secondModal .modal-content,#thirdModal .modal-content{
   background: #110F17;
@@ -1265,10 +1313,13 @@ padding-right: 10px;
 	video#bgVid {
 		object-fit: cover;
 	}
+  .loadMoreShow{
+    display: block;
+   }
   /* leader board media querry */
 @media(max-width:1199px){
   .mainHeading {
-    font-size: 1.5em;
+    font-size: 2em;
   }
   .subHeading{
     font-size: 1.1em;
@@ -1277,14 +1328,22 @@ padding-right: 10px;
     font-size: 0.9em;
   }
   .leaderBoard .tableHeader .tableCounter{
-      margin-right: 2em;
+      margin-right: 1.5em;
     }
+  }
+
+  @media (min-width:1400px) and (max-width:1600px){
+    .leaderBoard .tableHeader .tableCounter{
+      margin-right: initial;
+      margin-right: 4em;
+    } 
   }
 /* Media Query */
 @media (max-width: 992px) {
   .mainHeading {
-    font-size: 1.5em;
+    font-size: 2em;
   }
+
   .subHeading{
     font-size: 1.1em;
   }
@@ -1309,36 +1368,82 @@ padding-right: 10px;
     margin-top: 3em;
     margin-bottom: 2em;
   }
-  .sideMenuLinks .sideMenuLink {
-    display: none;
-  }
+ 
   .sideMenuLinks .sideMenuLink.active {
     display: block;
-    margin-top: 5em;
+    margin-top: 3em;
+    margin-bottom: 0;
+  }
+  .sideMenuLinks .sideMenuLink.active:focus{
+    border-radius: 10px 10px 0px 0px;
   }
   .searchArea {
     display: none;
   }
-
-  .leaderBoard .mainHeading {
-    margin-top: 3em;
+  .account .accountInfo .profileImg{
+    width: 8em;
+  }
+  .leaderBoard .leaderBoardTable{
+    max-height: 400px;
+    position: relative;
   }
  
+  .leaderBoard .leaderBoardTable,.leaderBoard .tableHeader{
+    font-size: 0.5em;
+  }
+  .leaderBoard .mainHeading {
+    margin-top: 1em;
+  }
+  .leaderBoard .leaderBoardTable tr td:first-child{
+    width: initial;
+    text-align: start;
+  }
+  .leaderBoard .leaderBoardTable tr td:first-child span,.leaderBoard .leaderBoardTable tr td:first-child img{
+    margin-right: 0.5em;
+  }
   .leaderBoard .searchArea {
     display: block;
   }
-  .leaderBoard .leaderBoardContainer .tableHeader{
-    width: 1200px;
+
+  .leaderBoard .tableHeader .tableCounter img{
+    width: 1em;
   }
-  .leaderBoard .leaderBoardContainer .leaderBoardTable{
-    width: 1200px;
+  .leaderBoard .tableHeader .tableCounter .arrow{
+    width: 0.7em;
   }
-  .leaderBoard .tableHeader .tableCounter{
-    margin-right: 4em;
-  }
-  .leaderBoard .tableHeader .tableCounter:nth-child(1),.leaderBoard .tableHeader .tableCounter:nth-child(2){
+  /* .leaderBoard .tableHeader .tableCounter:nth-child(1),.leaderBoard .tableHeader .tableCounter:nth-child(2){
     display: none;
+  } */
+
+  .leaderBoard td:nth-child(2),.leaderBoard td:nth-child(3){
+    text-align: center;
   }
+  .leaderBoard .tableHeader .tableCounter.mobile{
+    display: inline-block;
+    margin-right: initial;
+    margin-right: 2em;
+  }
+  /* tool tip resp */
+  .toolTip.toolTip1::after{
+    content: '‘Like’ specific "rewarding" tweets to earn 1 Point.';
+  }
+  .toolTip.toolTip2::after{
+    content: '‘Retweet’ specific "rewarding" tweets to earn 2 Point.';
+  }
+  .toolTip.toolTip3::after{
+    content: '‘Comment’ specific "rewarding" tweets to earn 3 Point.';
+  }
+  .toolTip.points::after{
+    content: 'Total earned Engagement Points.';
+  }
+  .toolTip.toolTip4::after{
+    content: 'Post a Tweet or Quote including #raredough everyday.Daily Hashtag (Tweet/Quote) = 3 Points';
+  }
+  .toolTip.toolTip5::after{
+    content: 'Post a Tweet or Quote including @raredough everyday.Daily Mention (Tweet/Quote) = 2 Points';
+  }
+
+
   .newestDropdown .btn-secondary.dropdown-toggle {
     width: initial;
   }
@@ -1346,7 +1451,7 @@ padding-right: 10px;
     padding: 0;
   }
   .shopSection {
-    padding: 2em 1em;
+    padding: 0em 1em;
   }
   .shopSection .col-lg-2.smallSectionBorder{
     border: none;
@@ -1391,6 +1496,9 @@ padding-right: 10px;
     font-size: 0.8em;
     font-weight: 100;
     color: white;
+  }
+  .inventory .inventoryHeader{
+    padding-left: 1em;
   }
   .account .accountInfo .col-lg-4:nth-child(2) {
     border: none;
@@ -1477,4 +1585,24 @@ padding-right: 10px;
   .rampp-minting-container {
     margin: auto !important;
   }
+}
+@media (min-width:470px) and (max-width:992px){
+  .leaderBoard .tableHeader .tableCounter.mobile{
+    display: inline-block;
+    margin-right: initial;
+    margin-right: 9em;
+  } 
+  .leaderBoard td:nth-child(2), .leaderBoard td:nth-child(3){
+    text-align: end;
+  }
+  .leaderBoard td:nth-child(3){
+    padding-right: 1em;
+  }
+}
+@media (min-width:470px) and (max-width:767px){
+  .leaderBoard .tableHeader .tableCounter.mobile{
+    display: inline-block;
+    margin-right: initial;
+    margin-right: 4em;
+  } 
 }
