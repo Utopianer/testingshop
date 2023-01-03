@@ -45,9 +45,13 @@ window.addEventListener("scroll",()=>{
     navBar.style.top="-100px"
   }
   else{
-    navBar.style.top="0"
+    navBar.style="top:0;background-color:rgba(0,0,0,0.7);"
+
   }
   lastScrollTop=scrollTop
+  if(lastScrollTop===0){
+    navBar.style="background-color:transperent;"
+  }
 })
 
 // leader board changer
@@ -92,4 +96,12 @@ function respTable(arrow){
       $(".toolTip.resp").removeClass(`toolTip${count+1}`)
     }
   }
+}
+
+// account page copy
+function copyText(){
+  console.log(444);
+  let text=document.querySelector(".copyText").innerText
+  navigator.clipboard.writeText(text)
+  alert("Text copied")
 }
