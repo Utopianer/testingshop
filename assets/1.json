@@ -1,0 +1,17 @@
+{
+    "name": "Infinity Pizza",
+    "symbol": "INFINITY",
+    "description": "Get the Infinity Pizza for BASIC access to the upcoming Collection (private sale).",
+    "image": "https://raredough.com/assets/images/1.png",
+    "external_link": "https://raredough.com",
+    "attributes": [
+      {
+        "name": "Attribute 1",
+        "value": "Value 1"
+      },
+      {
+        "name": "Attribute 2",
+        "value": "Value 2"
+      }
+    ]
+}  
