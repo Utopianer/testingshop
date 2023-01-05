@@ -1,7 +1,7 @@
 {
     "name": "Infinity Pizza",
     "symbol": "INFINITY",
-    "description": "This Pizza serves as a BASIC access token for the RareDough Ecosystem",
+    "description": "This Pizza serves as a BASIC access token to the RareDough Ecosystem",
     "image": "https://raredough.com/assets/images/2.png",
     "external_link": "https://raredough.com",
     "attributes": [

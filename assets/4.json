@@ -1,0 +1,21 @@
+{
+    "name": "Whitelist lvl 2",
+    "symbol": "WLLVL2",
+    "description": "This Sauce serves as PREMIUM access token for the RareDough Ecosystem",
+    "image": "https://raredough.com/assets/images/4.png",
+    "external_link": "https://raredough.com",
+    "attributes": [
+      {
+        "name": "Background",
+        "value": "Blue"
+      },
+      {
+        "name": "Sauce",
+        "value": "Ketchup"
+      },
+      {
+        "name": "Utility",
+        "value": "Premium Access"
+      }
+    ]
+}  

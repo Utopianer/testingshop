@@ -1,0 +1,21 @@
+{
+    "name": "Whitelist lvl 3",
+    "symbol": "WLLVL3",
+    "description": "This Sauce serves as DIAMOND access token for the RareDough Ecosystem",
+    "image": "https://raredough.com/assets/images/5.png",
+    "external_link": "https://raredough.com",
+    "attributes": [
+      {
+        "name": "Background",
+        "value": "Red"
+      },
+      {
+        "name": "Sauce",
+        "value": "Royal"
+      },
+      {
+        "name": "Utility",
+        "value": "Diamond Access"
+      }
+    ]
+}  

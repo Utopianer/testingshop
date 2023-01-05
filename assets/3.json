@@ -1,0 +1,21 @@
+{
+    "name": "Whitelist lvl 1",
+    "symbol": "WLLVL1",
+    "description": "This Sauce serves as ELEVATED access token for the RareDough Ecosystem",
+    "image": "https://raredough.com/assets/images/3.png",
+    "external_link": "https://raredough.com",
+    "attributes": [
+      {
+        "name": "Background",
+        "value": "Green"
+      },
+      {
+        "name": "Sauce",
+        "value": "Mayonaise"
+      },
+      {
+        "name": "Utility",
+        "value": "Elevated Access"
+      }
+    ]
+}  
