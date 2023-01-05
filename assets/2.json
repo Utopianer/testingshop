@@ -1,0 +1,41 @@
+{
+    "name": "Infinity Pizza",
+    "symbol": "INFINITY",
+    "description": "This Pizza serves as a BASIC access token for the RareDough Ecosystem",
+    "image": "https://raredough.com/assets/images/2.png",
+    "external_link": "https://raredough.com",
+    "attributes": [
+      {
+        "name": "Background",
+        "value": "Galaxy"
+      },
+      {
+        "name": "Plate",
+        "value": "Ceramic White"
+      },
+      {
+        "name": "Dough",
+        "value": "Infinite Wheat"
+      },
+      {
+        "name": "Sauce",
+        "value": "Infinite Tomato Sauce"
+      },
+      {
+        "name": "Cheese",
+        "value": "Infinite Gouda"
+      },
+      {
+        "name": "Topping",
+        "value": "Infinite"
+      },
+      {
+        "name": "Special",
+        "value": "Portal"
+      },
+      {
+        "name": "Utility",
+        "value": "Basic Access"
+      }
+    ]
+}  

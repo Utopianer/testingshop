@@ -1,17 +1,41 @@
 {
-    "name": "Infinity Pizza",
-    "symbol": "INFINITY",
-    "description": "Get the Infinity Pizza for BASIC access to the upcoming Collection (private sale).",
+    "name": "Free Pizza",
+    "symbol": "FREEPIZZA",
+    "description": "Mint a free Pizza and burn it in the Oven to collect your first BREAD Tokens.",
     "image": "https://raredough.com/assets/images/1.png",
     "external_link": "https://raredough.com",
     "attributes": [
       {
-        "name": "Attribute 1",
-        "value": "Value 1"
+        "name": "Background",
+        "value": "Mystic Violet"
       },
       {
-        "name": "Attribute 2",
-        "value": "Value 2"
+        "name": "Plate",
+        "value": "Ceramic White"
+      },
+      {
+        "name": "Dough",
+        "value": "Infinite Wheat"
+      },
+      {
+        "name": "Sauce",
+        "value": "Infinite Tomato Sauce"
+      },
+      {
+        "name": "Cheese",
+        "value": "Infinite Gouda"
+      },
+      {
+        "name": "Topping",
+        "value": "Infinite"
+      },
+      {
+        "name": "Special",
+        "value": "Portal"
+      },
+      {
+        "name": "Utility",
+        "value": "Free Mint"
       }
     ]
 }  
