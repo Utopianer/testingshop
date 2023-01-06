@@ -1,3 +1,4 @@
+<?php $page = basename($_SERVER['PHP_SELF']); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +18,8 @@
       name="keywords"
       content="Blockchain, Ethereum, Polygon, nft, bayc, boredpizzas, freenft, freemint, nftcommunity, whitelist, digital, collectibles"
     />
-     <!-- Facebook Meta Tags -->
+
+    <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://raredough.com">
     <meta property="og:type" content="website">
     <meta property="og:title" content="RareDough.com">
@@ -28,7 +30,7 @@
     <meta property="og:image:alt" content="RareDough Pizzeria" />
     <meta property="og:image:type" content=".jpg" />
 
-  <!-- Twitter Meta Tags -->
+    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="RareDough.com">
     <meta property="twitter:url" content="https://RareDough.com">
@@ -209,13 +211,13 @@
         </div>
       </div>
       <div class="hideMenuBody">
-        <a class="hideMenuLink" tkey="" href="./index.html">Home</a>
+        <a class="hideMenuLink" tkey="" href="/">Home</a>
         <br />
-        <a class="hideMenuLink" tkey="get_btn" href="./vip-pass.html">Get Vip Pass</a>
+        <a class="hideMenuLink" tkey="get_btn" href="/vip-pass">Get Vip Pass</a>
         <br />
-        <a class="hideMenuLink" tkey="get_btn" href="./burn-oven.html">Burn oven</a>
+        <a class="hideMenuLink" tkey="get_btn" href="/burn-oven">Burn oven</a>
         <br />
-        <a class="hideMenuLink" tkey="get_btn" href="./shop.html">Shop</a>
+        <a class="hideMenuLink" tkey="get_btn" href="/shop">Shop</a>
         <div class="socialIcons">
           <a
             class=""
@@ -238,9 +240,10 @@
       </div>
     </div>
 
+    <!-- Start Body Wrapper -->
     <div class="bodyWapper">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg odd">
         <div class="container-fluid">
           <a class="navbar-brand me-5" href="#">
             <img src="./img/logo.png" alt="" />
@@ -268,16 +271,22 @@
                 >
               </li>
               <li class="nav-item">
-                <a tkey="get_btn" class="nav-link" href="./vip-pass.html">Get VIP Pass</a>
+                <a tkey="get_btn" class="nav-link" href="/vip-pass"
+                  >Get VIP Pass</a
+                >
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="./burn-oven.html">Burn oven</a>
+                <a tkey="" class="nav-link" href="/burn-oven"
+                  >Burn oven</a
+                >
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="./leaderBoard.html">Leaderboard</a>
+                <a tkey="" class="nav-link" href="/leaderboard"
+                  >Leaderboard</a
+                >
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="./shop.html">Shop</a>
+                <a tkey="" class="nav-link" href="/shop">Shop</a>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -444,80 +453,50 @@
                 </ul>
               </li>
             </ul>
+            <?php if ($page !== 'index.php') { ?>
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="https://opensea.io/collection/boredapepizzaclub"
+                    target="_blank"
+                    ><img src="./img/cart-icon.svg" alt=""
+                  /></a>
+                </li>
+                <li class="nav-item ms-3">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-secondary navDropDown"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <img src="./img/userIcon.svg" alt="" />
+                      <span>0x1234...7890</span>
+                      <img
+                        src="./img/downArrowDark.svg"
+                        alt=""
+                        class="downArrowDark"
+                      />
+                    </button>
+                    <ul class="dropdown-menu">
+                      <div class="mainText">Bread Balance</div>
+                      <h1 class="subHeading">
+                        <img
+                          src="./img/bpac-sm-icon.svg"
+                          alt=""
+                          class="me-3"
+                        />10,000.00
+                      </h1>
+                      <li>
+                        <a href="#" class="dropdown-item active">Account</a>
+                      </li>
+                      <li><a href="#" class="dropdown-item">Logout</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            <?php } ?>
           </div>
         </div>
       </nav>
-
-      <!-- Infinity Section -->
-      <section class="infinitySection homeSection">
-        <div class="container">
-          <div class="multiButton">
-            <a class="mainBtn" tkey="shop" href="shop"
-              >Enter Shop</a
-            >
-            <a class="mainBtn" tkey="get_btn" href="vip-pass">GET VIP PASS</a>
-          </div>
-          <div class="homeContents">
-            <h1 tkey="main_heading" class="mainHeading">Join the Club</h1>
-            <a
-              class="homeSocialLink"
-              href="https://opensea.io/collection/boredapepizzaclub"
-              target="_blank"
-            >
-              <img src="./img/home-opensea-icon.png" alt="Opensea Icon" />
-            </a>
-            <a
-              class="homeSocialLink odd"
-              href="https://twitter.com/BOREDpizzas"
-              target="_blank"
-            >
-              <img src="./img/home-twitter-icon.png" alt="Twitter Icon" />
-            </a>
-            <a
-              class="homeSocialLink"
-              href="https://discord.gg/boredpizzas"
-              target="_blank"
-            >
-              <img src="./img/home-discord-icon.png" alt="Discord Icon" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Copy Right Text -->
-      <div class="copyRightText" tkey="copy_text">
-        © 2022 Made with ❤ by RareDough 
-      </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/main.js"></script>
-    <script src="./js/lang.js"></script>
-    <script>
-      // Get Src from Image
-      let allFlags = document.querySelectorAll(".flagSrc");
-      for (let i = 0; i < allFlags.length; i++) {
-        allFlags[i].addEventListener("click", flagsHandleClick);
-      }
-
-      function flagsHandleClick(e) {
-        let flagSrc = e.target.src;
-        console.log(flagSrc);
-        document.getElementById("selectedFlag").src = flagSrc;
-        document.getElementById("selectedFlag2").src = flagSrc;
-      }
-
-      const selected = localStorage.getItem("langCode");
-      document.getElementById(
-        "selectedFlag"
-      ).src = `./img/${selected.toUpperCase()}.png`;
-      document.getElementById(
-        "selectedFlag2"
-      ).src = `./img/${selected.toUpperCase()}.png`;
-    </script>
-  </body>
-</html>
