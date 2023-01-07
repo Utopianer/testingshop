@@ -4,16 +4,22 @@
   if ($page == 'index'):
     $page = 'home';
     $title = 'RareDough | Home';
+    $description = 'This is the meta description for the homepage';
   elseif ($page == 'shop'):
     $title = 'RareDough | Shop';
+    $description = 'This is the meta description for the shop page';
   elseif ($page == 'account'):
     $title = 'RareDough | Account';
+    $description = 'This is the meta description for the account page';
   elseif ($page == 'burn-oven'):
     $title = 'RareDough | Burn Oven';
+    $description = 'This is the meta description for the burn oven';
   elseif ($page == 'leaderboard'):
     $title = 'RareDough | Leader Board';
+    $description = 'This is the meta description for the leaderboard page';
   elseif ($page == 'vip-pass'):
     $title = 'RareDough | Vip Pass';
+    $description = 'This is the meta description for the vip';
   endif;
 ?>
 <!DOCTYPE html>
