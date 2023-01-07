@@ -32,8 +32,8 @@
       <div class="col-lg-6 mt-3 mt-lg-0">
         <h1 tkey="vip_pass" class="mainHeading">VIP Pass</h1>
         <p tkey="main_text2" class="mainText">
-          Become a founding supporter and claim your <br />
-          spot at the top of the community. <br />
+          Become a founding supporter and claim your <br />
+          spot at the top of the community. <br />
           Don't pass up the chance to get a VIP pass early!
         </p>
         <a

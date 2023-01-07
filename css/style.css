@@ -22,7 +22,7 @@ body {
 .bodyWapper {
   padding-top: 5em;
 }
-body.vip {
+body.vip-pass {
   background-image: url("../img/vipbg.png");
   background-size: cover;
   background-position: center;
@@ -1109,16 +1109,16 @@ body.infinityPage {
 }
 
 /* Leader board */
-.leaderBoard .mainHeading {
+.leaderboard .mainHeading {
   text-align: center;
   text-transform: uppercase;
   margin: 1em 0;
   margin-top: 2em;
 }
-.leaderBoard .rankImg {
+.leaderboard .rankImg {
   width: 1.5em;
 }
-.leaderBoard .leaderBoardContainer {
+.leaderboard .leaderBoardContainer {
   padding-right: 1em;
   padding-top: 2em;
   background: #110f17;
@@ -1127,27 +1127,27 @@ body.infinityPage {
   margin-top: 1em;
 }
 
-.leaderBoard .leaderBoardTable {
+.leaderboard .leaderBoardTable {
   height: 600px;
   padding: 0.5em;
   overflow-y: auto;
   position: relative;
 }
-.leaderBoard .leaderBoardContainer {
+.leaderboard .leaderBoardContainer {
   overflow-x: auto;
 }
-.leaderBoard .leaderBoardTable::-webkit-scrollbar {
+.leaderboard .leaderBoardTable::-webkit-scrollbar {
   width: 10px;
 }
-.leaderBoard .leaderBoardTable::-webkit-scrollbar-thumb {
+.leaderboard .leaderBoardTable::-webkit-scrollbar-thumb {
   background-color: #fbfbfa;
   border-radius: 10px;
 }
-.leaderBoard .leaderBoardTable::-webkit-scrollbar-track {
+.leaderboard .leaderBoardTable::-webkit-scrollbar-track {
   background: #292437;
   border-radius: 10px;
 }
-.leaderBoard .tableHeader {
+.leaderboard .tableHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1155,44 +1155,44 @@ body.infinityPage {
   padding: 0.5em 2em;
   padding-left: 1em;
 }
-.leaderBoard .tableHeader .tableCounter {
+.leaderboard .tableHeader .tableCounter {
   display: inline-block;
   margin-right: 3em;
 }
-.leaderBoard .tableHeader img {
+.leaderboard .tableHeader img {
   width: 1.3em;
 }
-.leaderBoard .tableHeader img.arrow {
+.leaderboard .tableHeader img.arrow {
   width: 1em;
 }
-.leaderBoard .leaderBoardTable table {
+.leaderboard .leaderBoardTable table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 1em;
 }
 
-.leaderBoard .leaderBoardTable tbody tr {
+.leaderboard .leaderBoardTable tbody tr {
   background: #09070c;
   border-radius: 10px;
   margin-bottom: 2em;
 }
 
-.leaderBoard .leaderBoardTable td {
+.leaderboard .leaderBoardTable td {
   padding: 0.5em;
   margin-bottom: 1em;
   color: white;
 }
-.leaderBoard .leaderBoardTable tr td:first-child {
+.leaderboard .leaderBoardTable tr td:first-child {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   text-align: end;
   width: 2px;
 }
-.leaderBoard .leaderBoardTable tr td:last-child {
+.leaderboard .leaderBoardTable tr td:last-child {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.leaderBoard .leaderBoardTable tr td:nth-child(2) img {
+.leaderboard .leaderBoardTable tr td:nth-child(2) img {
   margin-right: 1em;
 }
 
@@ -1217,7 +1217,7 @@ body.infinityPage {
   left: -230px;
   z-index: 9999;
 }
-.leaderBoard .tableHeader .tableCounter.mobile {
+.leaderboard .tableHeader .tableCounter.mobile {
   display: none;
 }
 .toolTip.like::after {
@@ -1358,13 +1358,13 @@ video#bgVid {
   .mainText {
     font-size: 0.9em;
   }
-  .leaderBoard .tableHeader .tableCounter {
+  .leaderboard .tableHeader .tableCounter {
     margin-right: 1.5em;
   }
 }
 
 @media (min-width: 1400px) and (max-width: 2000px) {
-  .leaderBoard .tableHeader .tableCounter {
+  .leaderboard .tableHeader .tableCounter {
     margin-right: initial;
     margin-right: 4em;
   }
@@ -1414,45 +1414,45 @@ video#bgVid {
   .account .accountInfo .profileImg {
     width: 8em;
   }
-  .leaderBoard .leaderBoardTable {
+  .leaderboard .leaderBoardTable {
     max-height: 400px;
     position: relative;
   }
 
-  .leaderBoard .leaderBoardTable,
-  .leaderBoard .tableHeader {
+  .leaderboard .leaderBoardTable,
+  .leaderboard .tableHeader {
     font-size: 0.5em;
   }
-  .leaderBoard .mainHeading {
+  .leaderboard .mainHeading {
     margin-top: 1em;
   }
-  .leaderBoard .leaderBoardTable tr td:first-child {
+  .leaderboard .leaderBoardTable tr td:first-child {
     width: initial;
     text-align: start;
   }
-  .leaderBoard .leaderBoardTable tr td:first-child span,
-  .leaderBoard .leaderBoardTable tr td:first-child img {
+  .leaderboard .leaderBoardTable tr td:first-child span,
+  .leaderboard .leaderBoardTable tr td:first-child img {
     margin-right: 0.5em;
   }
-  .leaderBoard .searchArea {
+  .leaderboard .searchArea {
     display: block;
   }
 
-  .leaderBoard .tableHeader .tableCounter img {
+  .leaderboard .tableHeader .tableCounter img {
     width: 1em;
   }
-  .leaderBoard .tableHeader .tableCounter .arrow {
+  .leaderboard .tableHeader .tableCounter .arrow {
     width: 1em;
   }
-  /* .leaderBoard .tableHeader .tableCounter:nth-child(1),.leaderBoard .tableHeader .tableCounter:nth-child(2){
+  /* .leaderboard .tableHeader .tableCounter:nth-child(1),.leaderboard .tableHeader .tableCounter:nth-child(2){
     display: none;
   } */
 
-  .leaderBoard td:nth-child(2),
-  .leaderBoard td:nth-child(3) {
+  .leaderboard td:nth-child(2),
+  .leaderboard td:nth-child(3) {
     text-align: center;
   }
-  .leaderBoard .tableHeader .tableCounter.mobile {
+  .leaderboard .tableHeader .tableCounter.mobile {
     display: inline-block;
     margin-right: initial;
     margin-right: 2em;
@@ -1640,21 +1640,21 @@ video#bgVid {
   }
 }
 @media (min-width: 470px) and (max-width: 992px) {
-  .leaderBoard .tableHeader .tableCounter.mobile {
+  .leaderboard .tableHeader .tableCounter.mobile {
     display: inline-block;
     margin-right: initial;
     margin-right: 9em;
   }
-  .leaderBoard td:nth-child(2),
-  .leaderBoard td:nth-child(3) {
+  .leaderboard td:nth-child(2),
+  .leaderboard td:nth-child(3) {
     text-align: end;
   }
-  .leaderBoard td:nth-child(3) {
+  .leaderboard td:nth-child(3) {
     padding-right: 1em;
   }
 }
 @media (min-width: 470px) and (max-width: 767px) {
-  .leaderBoard .tableHeader .tableCounter.mobile {
+  .leaderboard .tableHeader .tableCounter.mobile {
     display: inline-block;
     margin-right: initial;
     margin-right: 4em;

@@ -1,4 +1,21 @@
-<?php $page = basename($_SERVER['PHP_SELF']); ?>
+<?php 
+  $filename = basename($_SERVER['PHP_SELF']);
+  $page = preg_replace("/(.+)\.php$/", "$1", $filename);
+  if ($page == 'index'):
+    $page = 'home';
+    $title = 'RareDough | Home';
+  elseif ($page == 'shop'):
+    $title = 'RareDough | Shop';
+  elseif ($page == 'account'):
+    $title = 'RareDough | Account';
+  elseif ($page == 'burn-oven'):
+    $title = 'RareDough | Burn Oven';
+  elseif ($page == 'leaderboard'):
+    $title = 'RareDough | Leader Board';
+  elseif ($page == 'vip-pass'):
+    $title = 'RareDough | Vip Pass';
+  endif;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +25,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
       name="viewport"
     />
-    <title>RareDough</title>
+    <title><?= $title; ?></title>
     <meta name="author" content="BoredApePizzaClub" />
     <meta
       name="description"
@@ -69,12 +86,12 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body class="home">
+  <body class="<?= $page; ?>">
     <!-- Hide Menu -->
     <div id="mobHideMenu" class="hideMenu">
       <div class="hideMenuHeader">
         <div>
-          <a class="menuBrand" href="index">
+          <a class="menuBrand" href="./">
             <img src="./img/logo.png" alt="BoredApePizzaClub Logo" />
           </a>
         </div>
@@ -211,13 +228,13 @@
         </div>
       </div>
       <div class="hideMenuBody">
-        <a class="hideMenuLink" tkey="" href="/">Home</a>
+        <a class="hideMenuLink" tkey="" href="./">Home</a>
         <br />
-        <a class="hideMenuLink" tkey="get_btn" href="/vip-pass">Get Vip Pass</a>
+        <a class="hideMenuLink" tkey="get_btn" href="./vip-pass">Get Vip Pass</a>
         <br />
-        <a class="hideMenuLink" tkey="get_btn" href="/burn-oven">Burn oven</a>
+        <a class="hideMenuLink" tkey="get_btn" href="./burn-oven">Burn oven</a>
         <br />
-        <a class="hideMenuLink" tkey="get_btn" href="/shop">Shop</a>
+        <a class="hideMenuLink" tkey="get_btn" href="./shop">Shop</a>
         <div class="socialIcons">
           <a
             class=""
@@ -241,11 +258,11 @@
     </div>
 
     <!-- Start Body Wrapper -->
-    <div class="bodyWapper">
+    <div class="bodyWapper <?= $page; ?>">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg odd">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand me-5" href="#">
+          <a class="navbar-brand me-5" href="./">
             <img src="./img/logo.png" alt="" />
           </a>
           <button
@@ -266,27 +283,21 @@
                   tkey="free_mint_btn"
                   class="nav-link"
                   aria-current="page"
-                  href="./index.html"
+                  href="./"
                   >Home</a
                 >
               </li>
               <li class="nav-item">
-                <a tkey="get_btn" class="nav-link" href="/vip-pass"
-                  >Get VIP Pass</a
-                >
+                <a tkey="get_btn" class="nav-link" href="./vip-pass">Get VIP Pass</a>
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="/burn-oven"
-                  >Burn oven</a
-                >
+                <a tkey="" class="nav-link" href="./burn-oven">Burn oven</a>
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="/leaderboard"
-                  >Leaderboard</a
-                >
+                <a tkey="" class="nav-link" href="./leaderboard">Leaderboard</a>
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="/shop">Shop</a>
+                <a tkey="" class="nav-link" href="./shop">Shop</a>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -314,147 +325,149 @@
                   ><img src="./img/discrod-icon.png" alt=""
                 /></a>
               </li>
-              <li class="nav-item dropdown flagDropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img id="selectedFlag" src="./img/EN.png" alt="" />
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a
-                      onClick="setLanguage('ch')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img
-                        class="flagSrc"
-                        tkey="flag"
-                        src="./img/CH.png"
-                        alt="Chinese Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('fr')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img
-                        class="flagSrc"
-                        src="./img/FR.png"
-                        alt="French Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('gr')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img
-                        class="flagSrc"
-                        src="./img/GR.png"
-                        alt="German Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('it')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img
-                        class="flagSrc"
-                        src="./img/IT.png"
-                        alt="Italian Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('jp')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img
-                        class="flagSrc"
-                        src="./img/JP.png"
-                        alt="Japanese Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('tr')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img
-                        class="flagSrc"
-                        src="./img/TR.png"
-                        alt="Turkish Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('hi')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img class="flagSrc" src="./img/HI.png" alt="Hindi Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('th')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img class="flagSrc" src="./img/TH.png" alt="Thai Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('en')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img
-                        class="flagSrc"
-                        src="./img/EN.png"
-                        alt="English Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('es')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img
-                        class="flagSrc"
-                        src="./img/ES.png"
-                        alt="Spanish Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('pt')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img
-                        class="flagSrc"
-                        src="./img/PT.png"
-                        alt="Portuguese Flag"
-                    /></a>
-                  </li>
-                  <li>
-                    <a
-                      onClick="setLanguage('nl')"
-                      class="dropdown-item"
-                      href="#"
-                      ><img class="flagSrc" src="./img/NL.png" alt="Dutch Flag"
-                    /></a>
-                  </li>
-                </ul>
-              </li>
+              <?php if ($page == 'home'): ?>
+                <li class="nav-item dropdown flagDropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img id="selectedFlag" src="./img/EN.png" alt="" />
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a
+                        onClick="setLanguage('ch')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img
+                          class="flagSrc"
+                          tkey="flag"
+                          src="./img/CH.png"
+                          alt="Chinese Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('fr')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img
+                          class="flagSrc"
+                          src="./img/FR.png"
+                          alt="French Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('gr')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img
+                          class="flagSrc"
+                          src="./img/GR.png"
+                          alt="German Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('it')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img
+                          class="flagSrc"
+                          src="./img/IT.png"
+                          alt="Italian Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('jp')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img
+                          class="flagSrc"
+                          src="./img/JP.png"
+                          alt="Japanese Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('tr')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img
+                          class="flagSrc"
+                          src="./img/TR.png"
+                          alt="Turkish Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('hi')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img class="flagSrc" src="./img/HI.png" alt="Hindi Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('th')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img class="flagSrc" src="./img/TH.png" alt="Thai Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('en')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img
+                          class="flagSrc"
+                          src="./img/EN.png"
+                          alt="English Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('es')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img
+                          class="flagSrc"
+                          src="./img/ES.png"
+                          alt="Spanish Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('pt')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img
+                          class="flagSrc"
+                          src="./img/PT.png"
+                          alt="Portuguese Flag"
+                      /></a>
+                    </li>
+                    <li>
+                      <a
+                        onClick="setLanguage('nl')"
+                        class="dropdown-item"
+                        href="#"
+                        ><img class="flagSrc" src="./img/NL.png" alt="Dutch Flag"
+                      /></a>
+                    </li>
+                  </ul>
+                </li>
+              <?php endif; ?>
             </ul>
-            <?php if ($page !== 'index.php') { ?>
-              <ul class="navbar-nav ms-auto">
+            <?php if ($page == 'account' || $page == 'shop'): ?>
+              <ul class="navbar-nav ms-3">
                 <li class="nav-item">
                   <a
                     class="nav-link"
@@ -466,13 +479,13 @@
                 <li class="nav-item ms-3">
                   <div class="dropdown">
                     <button
-                      class="btn btn-secondary navDropDown"
+                      class="nav-link mainBtn"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <img src="./img/userIcon.svg" alt="" />
-                      <span>0x1234...7890</span>
+                      <img id="userIcon" src="./img/userIcon.svg" alt="" />
+                      <span>Connect</span>
                       <img
                         src="./img/downArrowDark.svg"
                         alt=""
@@ -496,7 +509,7 @@
                   </div>
                 </li>
               </ul>
-            <?php } ?>
+            <?php endif; ?>
           </div>
         </div>
       </nav>
