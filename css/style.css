@@ -142,6 +142,63 @@ body.vip-pass {
   transition: 500ms all ease-in-out;
 }
 
+/* Wallet Button */
+#connectBtn #userIcon, #connectBtn .downArrowDark {
+  display:none;
+}
+  #connectBtn.connected #userIcon, #connectBtn.connected .downArrowDark {
+    display:block;
+  }
+.navbar-nav.wallet .navDropDown.btn {
+  background: #faedd7;
+  border-radius: 10px;
+  color: black;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-nav.wallet .navDropDown.btn span {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.navbar-nav.wallet .navDropDown.btn .downArrowDark {
+  transform: rotate(180deg);
+}
+.navbar-expand-lg .navbar-nav.wallet .dropdown-menu {
+  background: #110f17;
+  border: 1px solid #292437;
+  box-shadow: -9px 0px 24px #000000;
+  border-radius: 10px;
+  padding: 1em;
+  width: 100%;
+  margin-top: 1em;
+}
+.navbar-expand-lg .navbar-nav.wallet .dropdown-menu .subHeading {
+  text-align: center;
+  border-bottom: 1px solid #292437;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+.navbar-expand-lg .navbar-nav.wallet .dropdown-item {
+  color: #ada9b1;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+.navbar-expand-lg .navbar-nav.wallet .dropdown-item.active {
+  background: #292437;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+  color: #faedd7;
+}
+.navbar-expand-lg .navbar-nav.wallet .dropdown-item:hover {
+  background: #292437;
+  border-radius: 10px;
+  color: white;
+}
+
 /* Infinity Section */
 .infinitySection {
   padding: 10em 0 4em;
@@ -983,56 +1040,8 @@ body.infinityPage {
 .infinitySection.item .card-body table td:last-child {
   text-align: end;
 }
+
 /* Account page */
-.account .navDropDown.btn {
-  background: #faedd7;
-  border-radius: 10px;
-  color: black;
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.account .navDropDown.btn span {
-  margin-left: 1em;
-  margin-right: 1em;
-}
-.account .navDropDown.btn .downArrowDark {
-  transform: rotate(180deg);
-}
-.account .navbar-expand-lg .navbar-nav .dropdown-menu {
-  background: #110f17;
-  border: 1px solid #292437;
-  box-shadow: -9px 0px 24px #000000;
-  border-radius: 10px;
-  padding: 1em;
-  width: 100%;
-  margin-top: 1em;
-}
-.account .navbar-expand-lg .navbar-nav .dropdown-menu .subHeading {
-  text-align: center;
-  border-bottom: 1px solid #292437;
-  padding-bottom: 0.5em;
-  margin-bottom: 1em;
-}
-.account .navbar-expand-lg .navbar-nav .dropdown-item {
-  color: #ada9b1;
-  font-weight: 700;
-  font-size: 0.9em;
-}
-.account .navbar-expand-lg .navbar-nav .dropdown-item.active {
-  background: #292437;
-  border-radius: 10px;
-  margin-bottom: 0.5em;
-  color: #faedd7;
-}
-.account .navbar-expand-lg .navbar-nav .dropdown-item:hover {
-  background: #292437;
-  border-radius: 10px;
-  color: white;
-}
 .account .accountInfo {
   background: #110f17;
   border-radius: 10px;
@@ -1059,9 +1068,10 @@ body.infinityPage {
   transform: scale(1.5);
   margin-right: 0.5em;
 }
-.account .accountInfo .subHeading.yourAccout {
+.account .accountInfo .subHeading.yourAccount {
   background: #050407;
   padding: 0.5em 0;
+  line-height:1.2;
 }
 .account .accountInfo .balance {
   text-align: center;

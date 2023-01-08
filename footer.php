@@ -28,12 +28,23 @@
       }
 
       const selected = localStorage.getItem("langCode");
-      document.getElementById(
-        "selectedFlag"
-      ).src = `./img/${selected.toUpperCase()}.png`;
-      document.getElementById(
-        "selectedFlag2"
-      ).src = `./img/${selected.toUpperCase()}.png`;
+      if (selected) {
+        document.getElementById(
+          "selectedFlag"
+        ).src = `./img/${selected.toUpperCase()}.png`;
+        document.getElementById(
+          "selectedFlag2"
+        ).src = `./img/${selected.toUpperCase()}.png`;
+      }
     </script>
+    <?php if ($page == 'account' || $page == 'shop'): ?>
+      <script src="./js/coinabi.js"></script>
+      <script src="./js/pizzaabi.js"></script>
+      <script src="./js/ovenabi.js"></script>
+      <script src="./js/pizzalib.js"></script>
+      <script src="./js/connect.js"></script>
+    <?php elseif ($page == 'leaderboard'): ?>
+      <script src="./js/leaderboard.js"></script>
+    <?php endif; ?>
   </body>
 </html>

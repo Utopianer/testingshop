@@ -11,9 +11,9 @@
               <span>Account Name</span
               ><img src="./img/Pen.svg" alt="" class="ms-2" />
             </div>
-            <div class="mainText copyText">
-              0xd1234...7890
-              <img src="./img/Copy.svg" alt="" class="ms-2 copyIcon" onclick="copyText()"/>
+            <div class="mainText copyTextTrigger">
+              <span class="wallet-address copyText"></span>
+              <img src="./img/Copy.svg" alt="" class="ms-2 copyIcon" />
             </div>
           </div>
           <div class="col-lg-4 my-lg-auto">
@@ -21,7 +21,7 @@
               <div class="mainText">
                 <img src="./img/bpac-sm-icon.svg" alt="" /> Bread Balance
               </div>
-              <h1 class="subHeading yourAccout">10,000.00</h1>
+              <div class="subHeading yourAccount bread-balance">&nbsp;</div>
             </div>
           </div>
           <div class="col-lg-4 my-lg-auto">
@@ -31,7 +31,7 @@
                 Engagement Points
                 <span>Rank #999</span>
               </div>
-              <h1 class="subHeading yourAccout">10,000.00</h1>
+              <div class="subHeading yourAccount engagement-points">10,000.00</div>
             </div>
           </div>
         </div>

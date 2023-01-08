@@ -35,7 +35,7 @@
     <meta name="author" content="BoredApePizzaClub" />
     <meta
       name="description"
-      content="Collect digital Pizza Collectibles, burn and engage to earn BREAD Tokens."
+      content="<?= $description; ?>"
     />
     <meta
       name="keywords"
@@ -473,7 +473,7 @@
               <?php endif; ?>
             </ul>
             <?php if ($page == 'account' || $page == 'shop'): ?>
-              <ul class="navbar-nav ms-3">
+              <ul class="navbar-nav ms-3 wallet">
                 <li class="nav-item">
                   <a
                     class="nav-link"
@@ -485,9 +485,9 @@
                 <li class="nav-item ms-3">
                   <div class="dropdown">
                     <button
-                      class="nav-link mainBtn"
+                      id="connectBtn"
+                      class="btn btn-secondary navDropDown"
                       type="button"
-                      data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
                       <img id="userIcon" src="./img/userIcon.svg" alt="" />
@@ -500,13 +500,13 @@
                     </button>
                     <ul class="dropdown-menu">
                       <div class="mainText">Bread Balance</div>
-                      <h1 class="subHeading">
+                      <span class="subHeading">
                         <img
                           src="./img/bpac-sm-icon.svg"
                           alt=""
                           class="me-3"
-                        />10,000.00
-                      </h1>
+                        /><span class="bread-balance"></span>
+                      </span>
                       <li>
                         <a href="#" class="dropdown-item active">Account</a>
                       </li>
