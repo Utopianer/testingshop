@@ -6,6 +6,10 @@
     "external_link": "https://raredough.com",
     "attributes": [
       {
+        "name": "Category",
+        "value": "Whitelist"
+      },
+      {
         "name": "Background",
         "value": "Galaxy"
       },
