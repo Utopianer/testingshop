@@ -20,7 +20,7 @@ function bodyBtnHandleClick() {
 // Scroll for Mobile
 $(window).scroll(function () {
   var currentPosition = window.scrollY;
-  console.log(currentPosition);
+  // console.log(currentPosition);
   if (currentPosition > 70) {
     $("#mobHideMenu, #stickyNavbar").css("background", "black");
   } else {

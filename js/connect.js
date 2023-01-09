@@ -37,6 +37,7 @@ async function connectWallet() {
          connectBtn.setAttribute('data-bs-toggle', 'dropdown');
          document.querySelector('.wallet-address').innerHTML = walletTruncated;
          document.querySelector('.wallet-address').setAttribute('data-copy', wallet);
+         walletCont.style.display = 'block';
 
          web3 = new Web3(window.ethereum);
 
@@ -78,9 +79,49 @@ async function getUserAssets() {
    breadHoldings = await breadTxn.methods.balanceOf(wallet).call();
    breadHoldings = web3.utils.fromWei(breadHoldings, 'ether');
 
-   let elems = document.querySelectorAll('.bread-balance');
-   for(var i=0;i<elems.length;i++) {
-      elems[i].innerHTML = parseFloat(breadHoldings).toLocaleString();
+   let breadBalanceEles = document.querySelectorAll('.bread-balance');
+   for(var i=0;i<breadBalanceEles.length;i++) {
+      breadBalanceEles[i].innerHTML = parseFloat(breadHoldings).toLocaleString();
+   }
+
+   /* Account Inventory */
+   inventoryContainer.innerHTML = '';
+   let totalValue = 0;
+   for (const [i, quantity] of pizzaHoldings.entries()) {
+      // if token is held
+      if (quantity !== '0') {
+         let tokenName = LIBRARY[i]['name'],
+             imageName = tokenName.replace(/\s+/g, '-').toLowerCase(),
+             category = LIBRARY[i]['category'],
+             value = LIBRARY[i]['price'],
+             pizzaEle = `<div class="col mt-4">
+                           <div class="shopCard">
+                              <img
+                                 class="shopCardImg"
+                                 src="img/pizzas/${imageName}.jpg"a
+                                 alt=""
+                              />
+                              <div class="shopCardFooter">
+                                 <p class="category">${category}</p>
+                                 <p class="cardText">${tokenName}</p>
+                                 <p class="cardText odd">
+                                    <img src="./img/bpac-sm-icon.svg" alt="" /> ${value}
+                                 </p>
+                                 <a href="#" class="mainBtn light shopBtn">Mint Now</a>
+                              </div>
+                           </div>
+                        </div>`;
+         // increment total value
+         totalValue += (value * quantity);
+
+         // populate inventory and value
+         inventoryContainer.insertAdjacentHTML('beforeend', pizzaEle);
+      }
+   }
+
+   let breadValueEles = document.querySelectorAll('.pizza-bread-value');
+   for(var i=0;i<breadValueEles.length;i++) {
+      breadValueEles[i].innerHTML = parseFloat(totalValue).toLocaleString();
    }
 }
 

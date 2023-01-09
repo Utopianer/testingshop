@@ -1048,6 +1048,9 @@ body.infinityPage {
   padding: 2em;
   padding-bottom: 1em;
 }
+#walletCont {
+  display:none;
+}
 .account .accountInfo img {
   cursor: pointer;
 }
@@ -1113,6 +1116,7 @@ body.infinityPage {
 .inventory .inventoryHeader div:first-child {
   display: flex;
   color: white;
+  align-items: center;
 }
 .inventory .inventoryHeader div:first-child div {
   margin-left: 1em;
