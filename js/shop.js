@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json()
          }).then(function(item) {
             let itemName = item.name,
+                itemPrice = item.attributes[1].value.split(' '),
                 itemCategory = item.attributes[0].value,
                 shopItem = `<div class="col mt-4">
                               <div class="shopCard">
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                  <div class="shopCardFooter">
                                     <p class="category">${itemCategory}</p>
                                     <p class="cardText">${itemName}</p>
-                                    <p class="cardText odd"><img src="./img/bpac-sm-icon.svg" alt="">0</p>
+                                    <p class="cardText odd"><img src="./img/bpac-sm-icon.svg" alt="">${itemPrice[0]}</p>
                                     <a href="./freemint" class="mainBtn light shopBtn">Mint Now</a>
                                  </div>
                            </div>`;
