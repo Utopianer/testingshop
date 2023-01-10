@@ -47,5 +47,9 @@
     <?php elseif ($page == 'leaderboard'): ?>
       <script src="./js/leaderboard.js"></script>
     <?php endif; ?>
+
+    <?php if ($page == 'shop' || $page == 'utilities' || $page == 'whitelist'): ?>
+      <script src="./js/shop.js"></script>
+    <?php endif; ?>
   </body>
 </html>

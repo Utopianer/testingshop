@@ -803,11 +803,11 @@ body.infinityPage {
 } */
 
 /* Shop Page */
-.shopSection {
+#shopSection {
   padding: 2em;
   padding-top: 0;
 }
-.shopSection .col-lg-2.smallSectionBorder {
+#shopSection .col-lg-2.smallSectionBorder {
   border-right: 1px solid #8b817b;
 }
 .shopCard {
@@ -1506,10 +1506,10 @@ video#bgVid {
   .burnOvenSection .itemsContainer .itemContainerBody {
     height: 450px;
   }
-  .shopSection {
+  #shopSection {
     padding: 0em 0.4em;
   }
-  .shopSection .col-lg-2.smallSectionBorder {
+  #shopSection .col-lg-2.smallSectionBorder {
     border: none;
   }
   #shopModal .modal-dialog {
@@ -1520,7 +1520,7 @@ video#bgVid {
     right: initial;
   }
 
-  .shopSection .shopCard {
+  #shopSection .shopCard {
     margin-bottom: 1em;
   }
   .shopCard .cardText {

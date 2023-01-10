@@ -1,15 +1,15 @@
 <?php include 'header.php'; ?>
 
-    <section id="shopSection" class="mt-lg-3" data-category="all">
+    <section id="shopSection" class="mt-lg-3" data-category="limited editions">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2 smallSectionBorder py-lg-5">
                     <div class="sideMenu">
                         <!-- desktopView -->
                         <div class="sideMenuLinks desktopView">
-                            <a class="sideMenuLink active" href="./shop">All Items</a>
-                            <a class="sideMenuLink " href="./whitelist">Whitelist</a>
-                            <a class="sideMenuLink" href="./limited-editions">Limited Editions</a>
+                            <a class="sideMenuLink" href="./shop">All Items</a>
+                            <a class="sideMenuLink" href="./whitelist">Whitelist</a>
+                            <a class="sideMenuLink active" href="./limited-editions">Limited Editions</a>
                             <a class="sideMenuLink" href="./custom-pizza">Custom Pizzas</a>
                             <a class="sideMenuLink" href="./utilities">Utilities</a>
                         </div>
