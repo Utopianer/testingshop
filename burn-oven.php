@@ -18,36 +18,10 @@
         <div class="itemsContainer">
           <div class="itemsHeader">
             <h2 class="itemHeading">Your Inventory</h2>
-            <h2 class="itemHeading">(9 items)</h2>
+            <h2 id="totalInventoryQuantity" class="itemHeading">(<span></span> items)</h2>
           </div>
           <div class="itemContainerBody">
-            <div class="row g-2">
-              <div class="col-3">
-                <div class="itemImageParent">
-                  <!-- <div class="hoverCard">
-                    <img src="./img/item-hover-img-1.png" alt="" />
-                    <div class="hoverCardFooter">
-                      <div class="hoverCardHeading">Genesis Pizza #8</div>
-                      <div class="hoverCardContents">
-                        <div class="hoverCardText">
-                          Burn for $BREAD tokens
-                        </div>
-                        <div class="hoverCardTextTwo">
-                          +
-                          <img src="./img/bpac-sm-icon.svg" alt="" />
-                          1.000
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-                  <span class="itemRate">9999</span>
-                  <img
-                    class="itemImg"
-                    src="./img/item-img-1.png"
-                    alt=""
-                  />
-                </div>
-              </div>
+            <div id="inventoryContainer" data-page="<?= $page; ?>" class="row g-2">
               <div class="col-3">
                 <div class="itemImageParent">
                   <span class="itemRate">9999</span>
@@ -304,7 +278,7 @@
           <div class="itemContainerFooter tableFooter">
             <h5 class="itemFooterHeading">Total value in BREAD:</h5>
             <h5 class="itemFooterHeading">
-              <img src="./img/bpac-sm-icon.svg" alt="" /> 100.000.00
+              <img src="./img/bpac-sm-icon.svg" alt="" /> <span class="pizza-bread-value"></span>
             </h5>
           </div>
         </div>
@@ -326,115 +300,18 @@
         <div class="itemsContainer  animated">
           <div class="itemsHeader">
             <h2 class="itemHeading">Burn List</h2>
-            <h2 class="itemHeading">(9 items)</h2>
+            <h2 class="itemHeading">(<span id="totalQuantity"></span> items)</h2>
           </div>
-          <div class="itemContainerBody">
-            <div class="burnListContainer">
-              <div class="burnImgArea">
-                <img
-                  class="burnListImg"
-                  src="./img/burn-list-img-1.png"
-                  alt=""
-                />
-                <span class="burilistText">Genesis Pizza #8</span>
-              </div>
-              <div class="customCounter">
-                <a class="countBtn" href="#"
-                  ><i class="fa-solid fa-square-plus"></i
-                ></a>
-                <div class="burilistText">999</div>
-                <a class="countBtn" href="#">
-                  <i class="fa-solid fa-square-minus"></i>
-                </a>
-              </div>
-              <div class="rightArea">
-                <div class="burilistText">
-                  <img src="./img/bpac-sm-icon.svg" alt="" /> 1000.1
-                </div>
-              </div>
-            </div>
-            <div class="burnListContainer">
-              <div class="burnImgArea">
-                <img
-                  class="burnListImg"
-                  src="./img/burn-list-img-2.png"
-                  alt=""
-                />
-                <span class="burilistText">Genesis Pizza #8</span>
-              </div>
-              <div class="customCounter">
-                <a class="countBtn" href="#"
-                  ><i class="fa-solid fa-square-plus"></i
-                ></a>
-                <div class="burilistText">999</div>
-                <a class="countBtn" href="#">
-                  <i class="fa-solid fa-square-minus"></i>
-                </a>
-              </div>
-              <div class="rightArea">
-                <a class="trashBtn" href="#">
-                  <img src="./img/trash-icon.svg" alt="" />
-                </a>
-              </div>
-            </div>
-            <div class="burnListContainer">
-              <div class="burnImgArea">
-                <img
-                  class="burnListImg"
-                  src="./img/burn-list-img-3.png"
-                  alt=""
-                />
-                <span class="burilistText">Genesis Pizza #8</span>
-              </div>
-              <div class="customCounter">
-                <a class="countBtn" href="#"
-                  ><i class="fa-solid fa-square-plus"></i
-                ></a>
-                <div class="burilistText">999</div>
-                <a class="countBtn" href="#">
-                  <i class="fa-solid fa-square-minus"></i>
-                </a>
-              </div>
-              <div class="rightArea">
-                <a class="trashBtn" href="#">
-                  <img src="./img/trash-icon.svg" alt="" />
-                </a>
-              </div>
-            </div>
-            <div class="burnListContainer">
-              <div class="burnImgArea">
-                <img
-                  class="burnListImg"
-                  src="./img/burn-list-img-4.png"
-                  alt=""
-                />
-                <span class="burilistText">Genesis Pizza #8</span>
-              </div>
-              <div class="customCounter">
-                <a class="countBtn" href="#"
-                  ><i class="fa-solid fa-square-plus"></i
-                ></a>
-                <div class="burilistText">999</div>
-                <a class="countBtn" href="#">
-                  <i class="fa-solid fa-square-minus"></i>
-                </a>
-              </div>
-              <div class="rightArea">
-                <div class="burilistText">
-                  <img src="./img/bpac-sm-icon.svg" alt="" /> 1000.1
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="itemContainerBody burnList"></div>
           <div class="itemContainerFooter tableFooter odd">
             <h5 class="itemFooterHeading">You get:</h5>
             <h5 class="itemFooterHeading">
-              + <img src="./img/bpac-sm-icon.svg" alt="" /> 100.000.00
+              + <img src="./img/bpac-sm-icon.svg" alt="" /> <span id="totalBurnValue"></span>
             </h5>
           </div>
           <div class="footerTwo">
             <div>Balance:</div>
-            <div>10.000.00</div>
+            <div class="bread-balance">10.000.00</div>
           </div>
         </div>
       </div>

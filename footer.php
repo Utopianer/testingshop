@@ -37,7 +37,7 @@
         ).src = `./img/${selected.toUpperCase()}.png`;
       }
     </script>
-    <?php if ($page == 'account' || $page == 'shop'): ?>
+    <?php if ($page == 'account' || $page == 'shop' || $page == 'burn-oven'): ?>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0-rc.0/web3.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="./js/coinabi.js"></script>
       <script src="./js/pizzaabi.js"></script>
@@ -50,6 +50,10 @@
 
     <?php if ($page == 'shop' || $page == 'utilities' || $page == 'whitelist'): ?>
       <script src="./js/shop.js"></script>
+    <?php endif; ?>
+
+    <?php if ($page == 'burn-oven'): ?>
+      <script src="./js/burn-oven.js"></script>
     <?php endif; ?>
   </body>
 </html>

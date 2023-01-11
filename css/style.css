@@ -19,6 +19,9 @@ body {
   min-height: 100vh;
   background-color: black !important;
 }
+  body.burn-oven {
+    background-image: url("../img/bg-2.png");
+  }
 .bodyWapper {
   padding-top: 5em;
 }
@@ -745,9 +748,12 @@ body.infinityPage {
   text-decoration: none;
   transition: 200ms all ease-in-out;
 }
-.burnListContainer .countBtn:hover {
+.burnListContainer .countBtn:not(.disabled):hover {
   color: white;
 }
+  .burnListContainer .countBtn.disabled:hover {
+    cursor:default;
+  }
 .burnListContainer .customCounter {
   text-align: center;
   width: 20%;
@@ -798,9 +804,10 @@ body.infinityPage {
 .desktopView {
   display: block;
 }
-/* .burnListContainer .burnListImg {
-  width: 100%;
-} */
+ .burnListContainer .burnListImg {
+  width: 62px;
+  border-radius:10px;
+} 
 
 /* Shop Page */
 #shopSection {

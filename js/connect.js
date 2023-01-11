@@ -35,9 +35,11 @@ async function connectWallet() {
          connectBtn.querySelector('span').innerHTML = walletTruncated;
          connectBtn.classList.add('connected');
          connectBtn.setAttribute('data-bs-toggle', 'dropdown');
-         document.querySelector('.wallet-address').innerHTML = walletTruncated;
-         document.querySelector('.wallet-address').setAttribute('data-copy', wallet);
-         walletCont.style.display = 'block';
+         if(document.querySelector('.wallet-address')){
+            document.querySelector('.wallet-address').innerHTML = walletTruncated;
+            document.querySelector('.wallet-address').setAttribute('data-copy', wallet);
+            walletCont.style.display = 'block';
+         }
 
          web3 = new Web3(window.ethereum);
 
@@ -86,37 +88,63 @@ async function getUserAssets() {
 
    /* Account Inventory */
    inventoryContainer.innerHTML = '';
-   let totalValue = 0;
+   let page = inventoryContainer.dataset.page, 
+       totalInventoryQuantity = 0;
+       totalValue = 0;
+
    for (const [i, quantity] of pizzaHoldings.entries()) {
       // if token is held
       if (quantity !== '0') {
          let tokenName = LIBRARY[i]['name'],
              imageName = tokenName.replace(/\s+/g, '-').toLowerCase(),
              category = LIBRARY[i]['category'],
-             value = LIBRARY[i]['price'],
-             pizzaEle = `<div class="col mt-4">
-                           <div class="shopCard">
+             value = LIBRARY[i]['price'];
+
+         // build HTML
+         if (page === 'burn-oven') {
+            pizzaEle = `<div class="col-3">
+                           <div class="itemImageParent inventoryItem" data-token-name="${tokenName}" data-image-name="${imageName}" data-quantity="${quantity}" data-value="${value}" data-index="${i}">
+                              <span class="itemRate">${quantity}</span>
                               <img
-                                 class="shopCardImg"
-                                 src="img/pizzas/${imageName}.jpg"a
-                                 alt=""
+                                class="itemImg"
+                                src="./img/pizzas/${imageName}.jpg"
+                                alt="${tokenName}"
                               />
-                              <div class="shopCardFooter">
-                                 <p class="category">${category}</p>
-                                 <p class="cardText">${tokenName}</p>
-                                 <p class="cardText odd">
-                                    <img src="./img/bpac-sm-icon.svg" alt="" /> ${value}
-                                 </p>
-                                 <a href="#" class="mainBtn light shopBtn">Mint Now</a>
-                              </div>
                            </div>
                         </div>`;
+         } else {
+            pizzaEle = `<div class="col inventoryItem mt-4">
+                              <div class="shopCard">
+                                 <img
+                                    class="shopCardImg"
+                                    src="./img/pizzas/${imageName}.jpg"
+                                    alt=""
+                                 />
+                                 <div class="shopCardFooter">
+                                    <p class="category">${category}</p>
+                                    <p class="cardText">${tokenName}</p>
+                                    <p class="cardText odd">
+                                       <img src="./img/bpac-sm-icon.svg" alt="" /> ${value}
+                                    </p>
+                                    <a href="#" class="mainBtn light shopBtn">Mint Now</a>
+                                 </div>
+                              </div>
+                           </div>`;
+         }
+
+         // increment total quantity
+         totalInventoryQuantity = (totalInventoryQuantity + parseInt(quantity));
+
          // increment total value
          totalValue += (value * quantity);
 
          // populate inventory and value
          inventoryContainer.insertAdjacentHTML('beforeend', pizzaEle);
       }
+   }
+
+   if (page === 'burn-oven') {
+      document.querySelector('#totalInventoryQuantity span').innerHTML = parseFloat(totalInventoryQuantity).toLocaleString();
    }
 
    let breadValueEles = document.querySelectorAll('.pizza-bread-value');

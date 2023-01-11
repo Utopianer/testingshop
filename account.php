@@ -109,7 +109,7 @@
           </div>
 
           <!-- cards -->
-          <div id="inventoryContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5"></div>
+          <div id="inventoryContainer" data-page="<?= $page; ?>" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5"></div>
 
           <!-- load more -->
           <!-- <span class="mainText loadMoreBtn" onclick="loadMore()">Load more</span> -->

@@ -472,7 +472,7 @@
                 </li>
               <?php endif; ?>
             </ul>
-            <?php if ($page == 'account' || $page == 'shop'): ?>
+            <?php if ($page == 'account' || $page == 'shop' || $page == 'burn-oven'): ?>
               <ul class="navbar-nav ms-3 wallet">
                 <li class="nav-item">
                   <a
