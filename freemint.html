@@ -232,7 +232,7 @@
                       </h1>
                       <div class="row ">
                         <div class="col-lg-6 ">
-                          <a href="#" class="mainBtn light">Mint Now</a>
+                          <a href="#" id="mint-button" class="mainBtn light">Mint Now</a>
                         </div>
                         <div class="col-lg-6 ">
                           <a href="https://app.uniswap.org/#/tokens/polygon/0xb8e57A05579b1F4c42DEc9e18E0b665B0dB5277f" class="mainBtn dark">Buy BREAD</a>
@@ -362,6 +362,60 @@
                 crossorigin="anonymous"
                 referrerpolicy="no-referrer"
               ></script>
+
+  <!-- ABI files -->
+  <script src="js/shopabi.js"></script>
+
+  <!-- Web3 Injection -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.2/web3.min.js"
+    integrity="sha512-mYc+D+NmmyR0Gcrzyae7q5HguBCS4cBHAsIk7gGhu0/ZyGg4z2YZDjyR2YQA/IMCMTNs4mnlw3vVdERzewpekQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Mint Button -->
+  <script>
+    const mintButton = document.getElementById('mint-button');
+    const contractAddress = '0x37322BF16cCF75FDCF2eE22B4361913b0FaCba49';
+    const ABI = top.abi_shop;
+    const tokenId = 1;
+    const qty = 1;
+    var wallets = null;
+    var web3 = null;
+
+    mintButton.addEventListener('click', async () => {
+      // Ensure MetaMask is available
+      if (typeof window.ethereum === 'undefined') {
+        alert('Please install MetaMask to mint tokens');
+        return;
+      }
+
+      try {
+        // CONNECT TO USER WALLET
+        await window.ethereum.enable();
+        web3 = new Web3(window.ethereum);
+        wallets = await web3.eth.getAccounts();
+
+        // VERIFY CORRECT CHAIN LOADED IN WALLET OR REQUEST CHANGE NETWORK
+        let chainId = await web3.eth.getChainId();
+        if (chainId != 137) {
+          await window.ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{chainId: '0x89'}],
+          });
+          window.location.reload();
+        }
+
+        // Buy Pizzas
+        const contract = new web3.eth.Contract(ABI, contractAddress);
+        let gasPrice = await web3.eth.getGasPrice();
+        await contract.methods.buyPizzas(tokenId, qty).send({from: wallets[0], gasPrice: gasPrice});
+        console.log("Pizzas Bought Successfully!");
+      } catch (error) {
+        console.error(error);
+        alert(error.message);
+      }
+    });
+  </script>
+
             </div>
           </div>
         </div>
