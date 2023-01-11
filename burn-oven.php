@@ -295,6 +295,7 @@
         <img src="./img/burn-oven-img.png" alt="" />
         <br />
         <a class="mainBtn lightwhite" href="#" onclick="addToWallet();">BURN</a>
+        <a id="addToWallet" class="mainBtn lightwhite" href="#">ADD TO WALLET</a>
       </div>
       <div class="col-lg-4 mt-5">
         <div class="itemsContainer  animated">

@@ -1,4 +1,3 @@
-console.log(LIBRARY);
 $(function() {
   // Inventory hover
   $(document).on('mouseenter', '.inventoryItem:not(.placeholder)', function() {
@@ -159,4 +158,10 @@ $(function() {
   function clearTable() {
     $('#burn tbody').html('');
   }
+
+  $('#addToWallet').click(function(e) {
+    e.preventDefault();
+    // Add $BREAD to wallet
+    addToWallet(BREAD, 'BREAD', BREAD_IMG)
+  });
 });

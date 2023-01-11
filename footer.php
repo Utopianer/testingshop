@@ -38,7 +38,7 @@
       }
     </script>
     <?php if ($page == 'account' || $page == 'shop' || $page == 'burn-oven'): ?>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0-rc.0/web3.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.1/web3.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="./js/coinabi.js"></script>
       <script src="./js/pizzaabi.js"></script>
       <script src="./js/ovenabi.js"></script>

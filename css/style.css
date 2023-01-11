@@ -752,7 +752,7 @@ body.infinityPage {
   color: white;
 }
   .burnListContainer .countBtn.disabled:hover {
-    cursor:default;
+    cursor:not-allowed;
   }
 .burnListContainer .customCounter {
   text-align: center;

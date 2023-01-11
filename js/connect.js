@@ -7,8 +7,9 @@ let wallets = null,
 const truncateRegex = /^(0x[a-zA-Z0-9]{3})[a-zA-Z0-9]+([a-zA-Z0-9]{3})$/;
 const PIZZA = '0x2953399124F0cBB46d2CbACD8A89cF0599974963'; //OpenSea ERC1155
 const PIZZA_ABI = top.abi_pizza;
-const BREAD = '0xb8e57A05579b1F4c42DEc9e18E0b665B0dB5277f'; //Coin address
+const BREAD = '0xb8e57A05579b1F4c42DEc9e18E0b665B0dB5277f'; //Bread address
 const BREAD_ABI = top.abi_coin;
+const BREAD_IMG = 'https://www.boredpizzas.com/img/BAPC-coin.svg';
 const OVEN = '0x7e410FcF59dd30bC09E9ad21b008D36b907fC86B'; //Oven address
 const OVEN_ABI = top.abi_oven;      
 const LIBRARY = top.pizzalib;
@@ -22,6 +23,36 @@ function truncateAddress(address) {
    return match[1] + "\u2026" + match[2];
 };
 
+async function populateWalletData() {
+   let walletTruncated = truncateAddress(wallet);
+   connectBtn.querySelector('span').innerHTML = walletTruncated;
+   connectBtn.classList.add('connected');
+   connectBtn.setAttribute('data-bs-toggle', 'dropdown');
+   if(document.querySelector('.wallet-address')){
+      document.querySelector('.wallet-address').innerHTML = walletTruncated;
+      document.querySelector('.wallet-address').setAttribute('data-copy', wallet);
+      walletCont.style.display = 'block';
+   }
+
+   web3 = new Web3(window.ethereum);
+
+   // VERIFY CORRECT CHAIN LOADED IN WALLET OR REQUEST CHANGE NETWORK
+   let chainId = await web3.eth.getChainId();    
+   if (chainId != 137){
+      await window.ethereum.request({
+         method: 'wallet_switchEthereumChain',
+         params: [{chainId: '0x89'}],
+      });
+      window.location.reload();
+   }
+
+   //PULL PIZZA DATA AND STORE IT LOCALLY
+   await getUserAssets();
+
+   // ADD PAGE UPDATE CODE AFTER WALLET CONNECT HERE
+   await checkApproval();
+}
+
 async function connectWallet() {
    // CONNECT TO USER WALLET
    if(window.ethereum){
@@ -30,37 +61,26 @@ async function connectWallet() {
             method: 'eth_requestAccounts',
          });
          wallet = wallets[0];
-         walletTruncated = truncateAddress(wallet);
 
-         connectBtn.querySelector('span').innerHTML = walletTruncated;
-         connectBtn.classList.add('connected');
-         connectBtn.setAttribute('data-bs-toggle', 'dropdown');
-         if(document.querySelector('.wallet-address')){
-            document.querySelector('.wallet-address').innerHTML = walletTruncated;
-            document.querySelector('.wallet-address').setAttribute('data-copy', wallet);
-            walletCont.style.display = 'block';
-         }
-
-         web3 = new Web3(window.ethereum);
-
-         // VERIFY CORRECT CHAIN LOADED IN WALLET OR REQUEST CHANGE NETWORK
-         let chainId = await web3.eth.getChainId();    
-         if (chainId != 137){
-            await window.ethereum.request({
-               method: 'wallet_switchEthereumChain',
-               params: [{chainId: '0x89'}],
-            });
-            window.location.reload();
-         }
-
-         //PULL PIZZA DATA AND STORE IT LOCALLY
-         await getUserAssets();
-
-         // ADD PAGE UPDATE CODE AFTER WALLET CONNECT HERE
-         await checkApproval();
+         // Load wallet data
+         populateWalletData()
       } catch (error) {
          console.log(error)
       }
+   }
+}
+
+async function checkConnection() {
+   ethereum.request({ method: 'eth_accounts' }).then(handleAccountsChanged).catch(console.error);
+}
+
+async function handleAccountsChanged(accounts) {
+   if (accounts[0] !== wallet) {
+      wallets = accounts;
+      wallet = wallets[0];
+
+      // Load wallet data
+      populateWalletData()
    }
 }
 
@@ -153,6 +173,26 @@ async function getUserAssets() {
    }
 }
 
+async function addToWallet(tokenAddress, tokenSymbol, tokenImage) {
+   if (window.ethereum) {
+      const wasAdded = await ethereum.request({
+         method: 'wallet_watchAsset',
+         params: {
+            type: 'ERC20',
+            options: {
+               address: tokenAddress,
+               symbol: tokenSymbol,
+               decimals: 18,
+               image: tokenImage
+            }
+         }
+      })
+      if (wasAdded) {
+         console.log('$'+tokenSymbol+' added to wallet.');
+      }
+   }
+}
+
 async function setApproval() {
    let gas = await web3.eth.getGasPrice();
 
@@ -179,4 +219,6 @@ $(function() {
          connectWallet();
       }
    });
+
+   checkConnection();
 });
