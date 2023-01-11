@@ -1,5 +1,4 @@
-let wallets = null,
-    wallet = null,
+let wallet = null,
     web3 = null,
     pizzaHoldings = [];
     breadHoldings = null;
@@ -55,18 +54,19 @@ async function populateWalletData() {
 
 async function connectWallet() {
    // CONNECT TO USER WALLET
-   if(window.ethereum){
-      try {
-         wallets = await window.ethereum.request({
-            method: 'eth_requestAccounts',
-         });
+   let provider = window.ethereum;
+   if (provider) {
+      provider.request({
+         method: 'eth_requestAccounts',
+      })
+      .then(wallets => {
          wallet = wallets[0];
-
-         // Load wallet data
-         populateWalletData()
-      } catch (error) {
-         console.log(error)
-      }
+         populateWalletData();
+      })
+      .catch(error => {
+         console.log(error);
+         return;
+      });
    }
 }
 
@@ -80,7 +80,7 @@ async function handleAccountsChanged(accounts) {
       wallet = wallets[0];
 
       // Load wallet data
-      populateWalletData()
+      populateWalletData();
    }
 }
 
@@ -91,7 +91,7 @@ async function getUserAssets() {
 
    for (i=0; i<jlength; i++) {
       pizzaIdArray.push(LIBRARY[i]['tokenid']);
-      walletArray.push(wallets[0]);
+      walletArray.push(wallet);
    }
 
    let pizzaTxn = new web3.eth.Contract(PIZZA_ABI, PIZZA);

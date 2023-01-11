@@ -508,7 +508,7 @@
                         /><span class="bread-balance"></span>
                       </span>
                       <li>
-                        <a href="#" class="dropdown-item active">Account</a>
+                        <a href="./account" class="dropdown-item <?= ($page == 'account') ? 'active' : ''; ?>">Account</a>
                       </li>
                       <li><a href="#" class="dropdown-item">Logout</a></li>
                     </ul>
