@@ -215,8 +215,9 @@ async function checkApproval() {
    if (!isApproved) {
       burnButton.innerHTML = 'APPROVE';
       burnButton.classList.add('approve');
-      burnButton.style.display = 'inline-block';
    }
+
+   burnButton.style.display = 'inline-block';
 }
 
 $(function() {
