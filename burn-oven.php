@@ -268,7 +268,7 @@
             <h2 class="itemHeading">Burn List</h2>
             <h2 class="itemHeading">(<span id="totalQuantity"></span> items)</h2>
           </div>
-          <div class="itemContainerBody burnList"></div>
+          <div id="burnList" class="itemContainerBody"></div>
           <div class="itemContainerFooter tableFooter odd">
             <h5 class="itemFooterHeading">You get:</h5>
             <h5 class="itemFooterHeading">

@@ -5,13 +5,12 @@ async function burnPizzas() {
   let gas = await web3.eth.getGasPrice();
   let txn = new web3.eth.Contract(OVEN_ABI, OVEN);
 
+  console.log(gas);
+
   await txn.methods.burnPizzaBatch( selectedTokenIds, selectedAmounts ).send({ from:wallets[0], amount:0, gasPrice:(gas*3)});
 
-  // empty burn table and hide footer
-  const tableBody = document.getElementsByTagName('tbody')[0];
-  const tableFooter = document.querySelector('.tableFooter');
-  tableFooter.style.display = 'none';
-  tableBody.innerHTML = '';
+  // empty burn table
+  burnList.innerHTML = '';
 }
 
 $(function() {
@@ -83,7 +82,7 @@ $(function() {
                       </div>`;
 
     // add row to table
-    $('.burnList').prepend($tableRow);
+    $('#burnList').prepend($tableRow);
 
     // loop over table rows
     getRows();
@@ -142,7 +141,7 @@ $(function() {
     let totalBurnValue = 0;
     let totalQuantity = 0;
 
-    const rowCount = $('.burnList .burnListContainer').length;
+    const rowCount = $('#burnList .burnListContainer').length;
     // if (rowCount > 0) {
     //   $('#burn table thead').show();
     //   $('#burn .tableFooter').show();
@@ -151,7 +150,7 @@ $(function() {
     //   $('#burn .tableFooter').removeAttr('style');
     // }
 
-    $('.burnList .burnListContainer').each(function(i) {
+    $('#burnList .burnListContainer').each(function(i) {
       const $tableRow = $(this);
       const tokenIndex = $tableRow.attr('data-index');
       const quantity = $('.quantity', $tableRow).text();
