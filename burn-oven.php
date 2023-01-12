@@ -23,87 +23,7 @@
           <div class="itemContainerBody">
             <div id="inventoryContainer" data-page="<?= $page; ?>" class="row g-2">
               <div class="col-3">
-                <div class="itemImageParent">
-                  <span class="itemRate">9999</span>
-                  <img
-                    class="itemImg"
-                    src="./img/item-img-2.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="itemImageParent">
-                  <span class="itemRate">9999</span>
-                  <img
-                    class="itemImg"
-                    src="./img/item-img-3.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="itemImageParent">
-                  <span class="itemRate">9999</span>
-                  <img
-                    class="itemImg"
-                    src="./img/item-img-4.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="itemImageParent">
-                  <span class="itemRate">9999</span>
-                  <img
-                    class="itemImg"
-                    src="./img/item-img-5.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="itemImageParent">
-                  <span class="itemRate">9999</span>
-                  <img
-                    class="itemImg"
-                    src="./img/item-img-6.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="itemImageParent">
-                  <span class="itemRate">9999</span>
-                  <img
-                    class="itemImg"
-                    src="./img/item-img-7.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="itemImageParent">
-                  <span class="itemRate">9999</span>
-                  <img
-                    class="itemImg"
-                    src="./img/item-img-8.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="itemImageParent">
-                  <span class="itemRate">9999</span>
-                  <img
-                    class="itemImg"
-                    src="./img/item-img-9.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -112,7 +32,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -121,7 +41,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -130,7 +50,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -139,7 +59,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -148,7 +68,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -157,7 +77,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -166,7 +86,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -175,7 +95,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -184,7 +104,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -193,7 +113,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -202,7 +122,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -211,7 +131,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -220,7 +140,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -229,7 +149,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -238,7 +158,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -247,7 +167,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -256,7 +176,7 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -265,7 +185,52 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="itemImageParent">
+                <div class="itemImageParent inventoryItem disabled">
+                  <img
+                    class="itemImg"
+                    src="./img/item-img-10.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="itemImageParent inventoryItem disabled">
+                  <img
+                    class="itemImg"
+                    src="./img/item-img-10.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="itemImageParent inventoryItem disabled">
+                  <img
+                    class="itemImg"
+                    src="./img/item-img-10.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="itemImageParent inventoryItem disabled">
+                  <img
+                    class="itemImg"
+                    src="./img/item-img-10.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="itemImageParent inventoryItem disabled">
+                  <img
+                    class="itemImg"
+                    src="./img/item-img-10.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="itemImageParent inventoryItem disabled">
                   <img
                     class="itemImg"
                     src="./img/item-img-10.png"
@@ -294,7 +259,7 @@
         </p>
         <img src="./img/burn-oven-img.png" alt="" />
         <br />
-        <a class="mainBtn lightwhite" href="#" onclick="addToWallet();">BURN</a>
+        <a id="burnButton" class="mainBtn lightwhite" href="#">BURN</a>
         <a id="addToWallet" class="mainBtn lightwhite" href="#">ADD TO WALLET</a>
       </div>
       <div class="col-lg-4 mt-5">
@@ -315,11 +280,6 @@
             <div class="bread-balance">10.000.00</div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-4 text-center mobileView">
-        <img src="./img/burn-oven-img.png" alt="" />
-        <br />
-        <a class="mainBtn lightwhite" href="#" onclick="addToWallet();">BURN</a>
       </div>
     </div>
   </div>

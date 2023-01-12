@@ -586,7 +586,6 @@ body.infinityPage {
   border: 1px solid #292437;
   backdrop-filter: blur(8.5px);
   border-radius: 10px;
-  cursor: pointer;
   padding: 2em 1em;
   height: 700px;
 }
@@ -634,10 +633,17 @@ body.infinityPage {
   border: 1px solid transparent;
   transition: 250ms all ease-in-out;
 }
-.burnOvenSection .itemsContainer .itemImageParent .itemImg:hover {
+.burnOvenSection .itemsContainer .itemImageParent:not(.disabled) .itemImg:hover {
   border: 1px solid #fdc500;
   box-shadow: 0px 0px 10px #ff1f00;
 }
+.burnOvenSection .itemsContainer .inventoryItem {
+  cursor:pointer;
+}
+  .burnOvenSection .itemsContainer .inventoryItem.disabled {
+    opacity:.6;
+    cursor:not-allowed;
+  }
 .burnOvenSection .itemsContainer .itemContainerBody {
   margin: 0.8em 0;
   padding-right: 0.7em;
@@ -808,7 +814,10 @@ body.infinityPage {
  .burnListContainer .burnListImg {
   width: 62px;
   border-radius:10px;
-} 
+}
+#burnButton {
+  display:none;
+}
 
 /* Shop Page */
 #shopSection {

@@ -1,7 +1,12 @@
-let wallet = null,
+let page = null,
+    wallet = null,
     web3 = null,
     pizzaHoldings = [];
     breadHoldings = null;
+
+if (inventoryContainer) {
+   page = inventoryContainer.dataset.page
+}
 
 const truncateRegex = /^(0x[a-zA-Z0-9]{3})[a-zA-Z0-9]+([a-zA-Z0-9]{3})$/;
 const PIZZA = '0x2953399124F0cBB46d2CbACD8A89cF0599974963'; //OpenSea ERC1155
@@ -36,7 +41,7 @@ async function populateWalletData() {
    web3 = new Web3(window.ethereum);
 
    // VERIFY CORRECT CHAIN LOADED IN WALLET OR REQUEST CHANGE NETWORK
-   let chainId = await web3.eth.getChainId();    
+   let chainId = await web3.eth.getChainId();
    if (chainId != 137){
       await window.ethereum.request({
          method: 'wallet_switchEthereumChain',
@@ -48,8 +53,10 @@ async function populateWalletData() {
    //PULL PIZZA DATA AND STORE IT LOCALLY
    await getUserAssets();
 
-   // ADD PAGE UPDATE CODE AFTER WALLET CONNECT HERE
-   await checkApproval();
+   // IF BURN OVEN, CHECK APPROVAL
+   if (page === 'burn-oven') {
+      await checkApproval();
+   }
 }
 
 async function connectWallet() {
@@ -108,8 +115,7 @@ async function getUserAssets() {
 
    /* Account Inventory */
    inventoryContainer.innerHTML = '';
-   let page = inventoryContainer.dataset.page, 
-       totalInventoryQuantity = 0;
+   let totalInventoryQuantity = 0;
        totalValue = 0;
 
    for (const [i, quantity] of pizzaHoldings.entries()) {
@@ -206,11 +212,11 @@ async function checkApproval() {
    let txn = new web3.eth.Contract(PIZZA_ABI, PIZZA);
    let isApproved = await txn.methods.isApprovedForAll( wallet, OVEN ).call();
 
-   // if (isApproved) {
-   //    document.getElementById('burnbutton').innerHTML = '<button id="burnPizza" class="btn" onClick="burnPizzas();">Burn</button><button id="burnPizza" class="btn" onClick="addToWallet();">Add to wallet</button>';
-   // } else {
-   //    document.getElementById('burnbutton').innerHTML = '<button id="burnPizza" class="btn" onClick="setApproval();">Allow Burning</button><button id="burnPizza" class="btn" onClick="addToWallet();">Add BREAD to wallet</button>';
-   // }
+   if (!isApproved) {
+      burnButton.innerHTML = 'APPROVE';
+      burnButton.classList.add('approve');
+      burnButton.style.display = 'inline-block';
+   }
 }
 
 $(function() {

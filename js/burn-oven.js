@@ -1,3 +1,19 @@
+let selectedTokenIds = [],
+    selectedAmounts = [];
+
+async function burnPizzas() {
+  let gas = await web3.eth.getGasPrice();
+  let txn = new web3.eth.Contract(OVEN_ABI, OVEN);
+
+  await txn.methods.burnPizzaBatch( selectedTokenIds, selectedAmounts ).send({ from:wallets[0], amount:0, gasPrice:(gas*3)});
+
+  // empty burn table and hide footer
+  const tableBody = document.getElementsByTagName('tbody')[0];
+  const tableFooter = document.querySelector('.tableFooter');
+  tableFooter.style.display = 'none';
+  tableBody.innerHTML = '';
+}
+
 $(function() {
   // Inventory hover
   $(document).on('mouseenter', '.inventoryItem:not(.placeholder)', function() {
@@ -50,7 +66,7 @@ $(function() {
                           <span class="burilistText">Genesis Pizza #8</span>
                         </div>
                         <div class="customCounter">
-                          <a class="countBtn add" href="#"><i class="fa-solid fa-square-plus ${quantity == 1 ? 'disabled' : ''}"></i></a>
+                          <a class="countBtn add ${quantity == 1 ? 'disabled' : ''}" href="#"><i class="fa-solid fa-square-plus"></i></a>
                           <div class="burilistText quantity">1</div>
                           <a class="countBtn sub" href="#">
                             <i class="fa-solid fa-square-minus"></i>
@@ -163,5 +179,16 @@ $(function() {
     e.preventDefault();
     // Add $BREAD to wallet
     addToWallet(BREAD, 'BREAD', BREAD_IMG)
+  });
+
+  $('#burnButton').click(function(e) {
+    e.preventDefault();
+    if ($(this).hasClass('approve')) {
+      // set approval
+      setApproval();
+    } else {
+      // burn
+      burnPizzas();
+    }
   });
 });
