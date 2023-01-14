@@ -248,9 +248,9 @@ async function allowance() {
    let isApproved = await txn.methods.allowance( WALLET, SHOP ).call();
 
    if (!isApproved) {
-      burnButton.innerHTML = 'APPROVE';
-      burnButton.classList.add('approve');
+      mintButton.innerHTML = 'APPROVE';
+      mintButton.classList.add('approve');
    }
 
-   burnButton.style.display = 'inline-block';
+   mintButton.style.display = 'inline-block';
 }
