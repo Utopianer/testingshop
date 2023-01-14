@@ -9,6 +9,10 @@ if (inventoryContainer) {
 }
 
 const truncateRegex = /^(0x[a-zA-Z0-9]{3})[a-zA-Z0-9]+([a-zA-Z0-9]{3})$/;
+const SPENDAMOUNT = 1000000;
+const WALLET = '0x503e538f7102d078644f750Daa92b5363e216CDE';
+const SHOP_ABI = top.abi_shop;
+const SHOP = '0x37322BF16cCF75FDCF2eE22B4361913b0FaCba49'; //Shop Contract
 const PIZZA = '0x2953399124F0cBB46d2CbACD8A89cF0599974963'; //OpenSea ERC1155
 const PIZZA_ABI = top.abi_pizza;
 const BREAD = '0xb8e57A05579b1F4c42DEc9e18E0b665B0dB5277f'; //Bread address
@@ -229,3 +233,24 @@ $(function() {
 
    checkConnection();
 });
+
+async function setSpendApproval() {
+   let gas = await web3.eth.getGasPrice();
+
+   let txn = new web3.eth.Contract(BREAD_ABI, BREAD);
+   await txn.methods.approve( SHOP, SPENDAMOUNT ).send({ from:wallet, amount:0, gasPrice:(gas*3) });
+
+   await allowance();
+}
+
+async function allowance() {
+   let txn = new web3.eth.Contract(WALLET, SHOP);
+   let isApproved = await txn.methods.allowance( WALLET, SHOP ).call();
+
+   if (!isApproved) {
+      burnButton.innerHTML = 'APPROVE';
+      burnButton.classList.add('approve');
+   }
+
+   burnButton.style.display = 'inline-block';
+}

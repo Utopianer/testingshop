@@ -484,15 +484,9 @@
                 </li>
               <?php endif; ?>
             </ul>
-            <?php if ($page == 'account' || $page == 'shop' || $page == 'burn-oven'): ?>
+            <?php if ($page == 'account' || $page == 'shop' || $page == 'burn-oven' || $page == 'freemint' || $page == 'infinity' || $page == 'whitelist-lvl1' || $page == 'whitelist-lvl2' || $page == 'whitelist-lvl3'): ?>
               <ul class="navbar-nav ms-3 wallet">
                 <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="https://opensea.io/collection/boredapepizzaclub"
-                    target="_blank"
-                    ><img src="./img/cart-icon.svg" alt=""
-                  /></a>
                 </li>
                 <li class="nav-item ms-3">
                   <div class="dropdown">
