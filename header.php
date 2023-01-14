@@ -17,9 +17,21 @@
   elseif ($page == 'leaderboard'):
     $title = 'RareDough | Leader Board';
     $description = 'This is the meta description for the leaderboard page';
-  elseif ($page == 'vip-pass'):
+  elseif ($page == 'freemint'):
+    $title = 'RareDough | Freemint';
+    $description = 'This is the meta description for the freemint';
+  elseif ($page == 'infinity'):
+    $title = 'RareDough | Infinity';
+    $description = 'This is the meta description for the Infinity Pizza';
+  elseif ($page == 'whitelist-lvl1'):
+    $title = 'RareDough | Whitelist lvl1';
+    $description = 'This is the meta description for the Whitelist lvl1';
+  elseif ($page == 'whitelist-lvl2'):
+    $title = 'RareDough | Whitelist lvl2';
+    $description = 'This is the meta description for the Whitelist lvl2';
+  elseif ($page == 'whitelist-lvl3'):
     $title = 'RareDough | Vip Pass';
-    $description = 'This is the meta description for the vip';
+    $description = 'This is the meta description for the Whitelist lvl3';
   endif;
 ?>
 <!DOCTYPE html>
@@ -294,16 +306,16 @@
                 >
               </li>
               <li class="nav-item">
-                <a tkey="get_btn" class="nav-link" href="./vip-pass">Get VIP Pass</a>
+                <a tkey="get_btn" class="nav-link" href="./vip-pass.php">Get VIP Pass</a>
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="./burn-oven">Burn oven</a>
+                <a tkey="" class="nav-link" href="./burn-oven.php">Burn oven</a>
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="./leaderboard">Leaderboard</a>
+                <a tkey="" class="nav-link" href="./leaderboard.php">Leaderboard</a>
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="./shop">Shop</a>
+                <a tkey="" class="nav-link" href="./shop.php">Shop</a>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
