@@ -167,7 +167,8 @@ async function getUserAssets() {
             }
 
             // increment total quantity
-            totalInventoryQuantity = (totalInventoryQuantity + parseInt(quantity));
+            totalInventoryQuantity += parseInt(quantity);
+            console.log(totalInventoryQuantity);
 
             // increment total value
             totalValue += (value * quantity);
@@ -176,15 +177,15 @@ async function getUserAssets() {
             inventoryContainer.insertAdjacentHTML('beforeend', pizzaEle);
          }
       }
-   }
 
-   if (page === 'burn-oven') {
-      document.querySelector('#totalInventoryQuantity span').innerHTML = parseFloat(totalInventoryQuantity).toLocaleString();
-   }
+      if (page === 'burn-oven') {
+         document.querySelector('#totalInventoryQuantity span').innerHTML = parseFloat(totalInventoryQuantity).toLocaleString();
+      }
 
-   let breadValueEles = document.querySelectorAll('.pizza-bread-value');
-   for(var i=0;i<breadValueEles.length;i++) {
-      breadValueEles[i].innerHTML = parseFloat(totalValue).toLocaleString();
+      let breadValueEles = document.querySelectorAll('.pizza-bread-value');
+      for (var i = 0; i < breadValueEles.length; i++) {
+         breadValueEles[i].innerHTML = parseFloat(totalValue).toLocaleString();
+      }
    }
 }
 
