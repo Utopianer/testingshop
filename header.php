@@ -20,6 +20,9 @@
   elseif ($page == 'freemint'):
     $title = 'RareDough | Freemint';
     $description = 'This is the meta description for the freemint';
+  elseif ($page == 'vip-pass'):
+    $title = 'RareDough | VIP Pass';
+    $description = 'This is the meta description for the VIP pass page';
   elseif ($page == 'infinity'):
     $title = 'RareDough | Infinity';
     $description = 'This is the meta description for the Infinity Pizza';
@@ -510,8 +513,8 @@
                         <img
                           src="./img/bpac-sm-icon.svg"
                           alt=""
-                          class="me-3"
-                        /><span class="bread-balance"></span>
+                          class="me-2"
+                        /><span class="bread-balance">0</span>
                       </span>
                       <li>
                         <a href="./account" class="dropdown-item <?= ($page == 'account') ? 'active' : ''; ?>">Account</a>

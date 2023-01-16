@@ -25,6 +25,10 @@ if (inventoryContainer) {
    page = inventoryContainer.dataset.page
 }
 
+if (provider) {
+   web3 = new Web3(window.ethereum);
+}
+
 function truncateAddress(address) {
    let match = address.match(truncateRegex);
    if (!match)
@@ -33,8 +37,6 @@ function truncateAddress(address) {
 };
 
 async function populateWalletData() {
-   web3 = new Web3(window.ethereum);
-
    // CHECK IF USER IS ON CORRECT CHAIN
    chainID = await web3.eth.getChainId();
    if (chainID != 137) {
