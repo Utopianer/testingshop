@@ -72,8 +72,8 @@ $(function() {
                           </a>
                         </div>
                         <div class="rightArea">
-                          <div class="burilistText">
-                            <img src="./img/bpac-sm-icon.svg" alt=""> ${value}
+                          <div class="burilistText d-flex align-items-center justify-content-end">
+                            <img class="me-2" src="./img/bpac-sm-icon.svg" alt=""><span class="me-2">${value}</span>
                             <a class="trashBtn" href="#">
                               <img src="./img/trash-icon.svg" alt="">
                             </a>
@@ -165,9 +165,6 @@ $(function() {
 
     $('#totalQuantity').text(totalQuantity);
     $('#totalBurnValue').text(totalBurnValue.toLocaleString());
-
-    console.log(selectedTokenIds);
-    console.log(selectedAmounts);
   }
 
   function clearTable() {

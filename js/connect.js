@@ -157,8 +157,8 @@ async function getUserAssets() {
                                     <div class="shopCardFooter">
                                        <p class="category">${category}</p>
                                        <p class="cardText">${tokenName}</p>
-                                       <p class="cardText odd">
-                                          <img src="./img/bpac-sm-icon.svg" alt="" /> ${value}
+                                       <p class="cardText odd d-flex align-items-center justify-content-start">
+                                          <img class="me-2" src="./img/bpac-sm-icon.svg" alt="" /> ${value.toLocaleString()}
                                        </p>
                                        <a href="#" class="mainBtn light shopBtn">Mint Now</a>
                                     </div>
@@ -168,7 +168,6 @@ async function getUserAssets() {
 
             // increment total quantity
             totalInventoryQuantity += parseInt(quantity);
-            console.log(totalInventoryQuantity);
 
             // increment total value
             totalValue += (value * quantity);

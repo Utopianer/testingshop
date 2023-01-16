@@ -59,6 +59,6 @@ document.querySelectorAll('.copyTextTrigger').forEach(el => {
   el.addEventListener('click', e => {
     let text = el.querySelector('.copyText').getAttribute('data-copy');
     navigator.clipboard.writeText(text);
-    alert('Text copied');
+    alert('Wallet address copied');
   })
 })

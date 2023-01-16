@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                  <div class="shopCardFooter">
                                     <p class="category">${itemCategory}</p>
                                     <p class="cardText">${itemName}</p>
-                                    <p class="cardText odd"><img src="./img/bpac-sm-icon.svg" alt="">${parseInt(itemPrice[0]).toLocaleString()}</p>
+                                    <p class="cardText odd d-flex align-items-center justify-content-start"><img class="me-2" src="./img/bpac-sm-icon.svg" alt="">${parseInt(itemPrice[0]).toLocaleString()}</p>
                                     <a href="./freemint" class="mainBtn light shopBtn">Mint Now</a>
                                  </div>
                            </div>`;
