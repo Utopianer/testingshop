@@ -1,14 +1,12 @@
 let page = null,
-    wallet = null,
     web3 = null,
+    walletAddress = null,
+    chainID = null,
     pizzaHoldings = [];
     breadHoldings = null;
 
-if (inventoryContainer) {
-   page = inventoryContainer.dataset.page
-}
-
 const truncateRegex = /^(0x[a-zA-Z0-9]{3})[a-zA-Z0-9]+([a-zA-Z0-9]{3})$/;
+const provider = window.ethereum;
 const SPENDAMOUNT = 1000000;
 const WALLET = '0x503e538f7102d078644f750Daa92b5363e216CDE';
 const SHOP_ABI = top.abi_shop;
@@ -21,8 +19,11 @@ const BREAD_IMG = 'https://www.boredpizzas.com/img/BAPC-coin.svg';
 const OVEN = '0x7e410FcF59dd30bC09E9ad21b008D36b907fC86B'; //Oven address
 const OVEN_ABI = top.abi_oven;      
 const LIBRARY = top.pizzalib;
-const FINNEY = 1000000000000000;
-const connectBtn = document.getElementById('connectBtn');
+const inventoryContainer = document.getElementById('inventoryContainer');
+
+if (inventoryContainer) {
+   page = inventoryContainer.dataset.page
+}
 
 function truncateAddress(address) {
    let match = address.match(truncateRegex);
@@ -32,26 +33,27 @@ function truncateAddress(address) {
 };
 
 async function populateWalletData() {
-   let walletTruncated = truncateAddress(wallet);
-   connectBtn.querySelector('span').innerHTML = walletTruncated;
-   connectBtn.classList.add('connected');
-   connectBtn.setAttribute('data-bs-toggle', 'dropdown');
-   if(document.querySelector('.wallet-address')){
-      document.querySelector('.wallet-address').innerHTML = walletTruncated;
-      document.querySelector('.wallet-address').setAttribute('data-copy', wallet);
-      walletCont.style.display = 'block';
-   }
-
    web3 = new Web3(window.ethereum);
 
-   // VERIFY CORRECT CHAIN LOADED IN WALLET OR REQUEST CHANGE NETWORK
-   let chainId = await web3.eth.getChainId();
-   if (chainId != 137){
+   // CHECK IF USER IS ON CORRECT CHAIN
+   chainID = await web3.eth.getChainId();
+   if (chainID != 137) {
       await window.ethereum.request({
          method: 'wallet_switchEthereumChain',
          params: [{chainId: '0x89'}],
       });
       window.location.reload();
+   }
+
+   // POPULATE WALLET DATA
+   let walletTruncated = truncateAddress(walletAddress);
+   connectBtn.querySelector('span').innerHTML = walletTruncated;
+   connectBtn.classList.add('connected');
+   connectBtn.setAttribute('data-bs-toggle', 'dropdown');
+   if(document.querySelector('.wallet-address')){
+      document.querySelector('.wallet-address').innerHTML = walletTruncated;
+      document.querySelector('.wallet-address').setAttribute('data-copy', walletAddress);
+      walletCont.style.display = 'block';
    }
 
    //PULL PIZZA DATA AND STORE IT LOCALLY
@@ -65,30 +67,29 @@ async function populateWalletData() {
 
 async function connectWallet() {
    // CONNECT TO USER WALLET
-   let provider = window.ethereum;
    if (provider) {
-      provider.request({
-         method: 'eth_requestAccounts',
-      })
-      .then(wallets => {
-         wallet = wallets[0];
-         populateWalletData();
-      })
-      .catch(error => {
-         console.log(error);
-         return;
-      });
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
+      const account = web3.eth.accounts;
+      walletAddress = account.givenProvider.selectedAddress;
+
+      // POPULATE WALLET DATA
+      populateWalletData();
+   } else {
+      console.log('No wallet detected');
    }
 }
 
 async function checkConnection() {
-   ethereum.request({ method: 'eth_accounts' }).then(handleAccountsChanged).catch(console.error);
+   if (provider) {
+      await ethereum.request({ method: 'eth_accounts' }).then(handleAccountsChanged).catch(console.error);
+   } else {
+      console.log('No wallet detected');
+   }
 }
 
 async function handleAccountsChanged(accounts) {
-   if (accounts[0] !== wallet) {
-      wallets = accounts;
-      wallet = wallets[0];
+   if (accounts[0] !== walletAddress) {
+      walletAddress = accounts[0];
 
       // Load wallet data
       populateWalletData();
@@ -102,14 +103,14 @@ async function getUserAssets() {
 
    for (i=0; i<jlength; i++) {
       pizzaIdArray.push(LIBRARY[i]['tokenid']);
-      walletArray.push(wallet);
+      walletArray.push(walletAddress);
    }
 
    let pizzaTxn = new web3.eth.Contract(PIZZA_ABI, PIZZA);
    pizzaHoldings = await pizzaTxn.methods.balanceOfBatch(walletArray, pizzaIdArray).call();
 
    let breadTxn = new web3.eth.Contract(BREAD_ABI, BREAD);
-   breadHoldings = await breadTxn.methods.balanceOf(wallet).call();
+   breadHoldings = await breadTxn.methods.balanceOf(walletAddress).call();
    breadHoldings = web3.utils.fromWei(breadHoldings, 'ether');
 
    let breadBalanceEles = document.querySelectorAll('.bread-balance');
@@ -118,58 +119,60 @@ async function getUserAssets() {
    }
 
    /* Account Inventory */
-   inventoryContainer.innerHTML = '';
-   let totalInventoryQuantity = 0;
-       totalValue = 0;
+   if (inventoryContainer) {
+      inventoryContainer.innerHTML = '';
+      let totalInventoryQuantity = 0;
+          totalValue = 0;
 
-   for (const [i, quantity] of pizzaHoldings.entries()) {
-      // if token is held
-      if (quantity !== '0') {
-         let tokenName = LIBRARY[i]['name'],
-             imageName = tokenName.replace(/\s+/g, '-').toLowerCase(),
-             category = LIBRARY[i]['category'],
-             value = LIBRARY[i]['price'];
+      for (const [i, quantity] of pizzaHoldings.entries()) {
+         // if token is held
+         if (quantity !== '0') {
+            let tokenName = LIBRARY[i]['name'],
+                imageName = tokenName.replace(/\s+/g, '-').toLowerCase(),
+                category = LIBRARY[i]['category'],
+                value = LIBRARY[i]['price'];
 
-         // build HTML
-         if (page === 'burn-oven') {
-            pizzaEle = `<div class="col-3">
-                           <div class="itemImageParent inventoryItem" data-token-name="${tokenName}" data-image-name="${imageName}" data-quantity="${quantity}" data-value="${value}" data-index="${i}">
-                              <span class="itemRate">${quantity}</span>
-                              <img
-                                class="itemImg"
-                                src="./img/pizzas/${imageName}.jpg"
-                                alt="${tokenName}"
-                              />
-                           </div>
-                        </div>`;
-         } else {
-            pizzaEle = `<div class="col inventoryItem mt-4">
-                              <div class="shopCard">
+            // build HTML
+            if (page === 'burn-oven') {
+               pizzaEle = `<div class="col-3">
+                              <div class="itemImageParent inventoryItem" data-token-name="${tokenName}" data-image-name="${imageName}" data-quantity="${quantity}" data-value="${value}" data-index="${i}">
+                                 <span class="itemRate">${quantity}</span>
                                  <img
-                                    class="shopCardImg"
-                                    src="./img/pizzas/${imageName}.jpg"
-                                    alt=""
+                                   class="itemImg"
+                                   src="./img/pizzas/${imageName}.jpg"
+                                   alt="${tokenName}"
                                  />
-                                 <div class="shopCardFooter">
-                                    <p class="category">${category}</p>
-                                    <p class="cardText">${tokenName}</p>
-                                    <p class="cardText odd">
-                                       <img src="./img/bpac-sm-icon.svg" alt="" /> ${value}
-                                    </p>
-                                    <a href="#" class="mainBtn light shopBtn">Mint Now</a>
-                                 </div>
                               </div>
                            </div>`;
+            } else {
+               pizzaEle = `<div class="col inventoryItem mt-4">
+                                 <div class="shopCard">
+                                    <img
+                                       class="shopCardImg"
+                                       src="./img/pizzas/${imageName}.jpg"
+                                       alt=""
+                                    />
+                                    <div class="shopCardFooter">
+                                       <p class="category">${category}</p>
+                                       <p class="cardText">${tokenName}</p>
+                                       <p class="cardText odd">
+                                          <img src="./img/bpac-sm-icon.svg" alt="" /> ${value}
+                                       </p>
+                                       <a href="#" class="mainBtn light shopBtn">Mint Now</a>
+                                    </div>
+                                 </div>
+                              </div>`;
+            }
+
+            // increment total quantity
+            totalInventoryQuantity = (totalInventoryQuantity + parseInt(quantity));
+
+            // increment total value
+            totalValue += (value * quantity);
+
+            // populate inventory and value
+            inventoryContainer.insertAdjacentHTML('beforeend', pizzaEle);
          }
-
-         // increment total quantity
-         totalInventoryQuantity = (totalInventoryQuantity + parseInt(quantity));
-
-         // increment total value
-         totalValue += (value * quantity);
-
-         // populate inventory and value
-         inventoryContainer.insertAdjacentHTML('beforeend', pizzaEle);
       }
    }
 
@@ -207,14 +210,14 @@ async function setApproval() {
    let gas = await web3.eth.getGasPrice();
 
    let txn = new web3.eth.Contract(PIZZA_ABI, PIZZA);
-   await txn.methods.setApprovalForAll( OVEN, true ).send({ from:wallet, amount:0, gasPrice:(gas*3) });
+   await txn.methods.setApprovalForAll( OVEN, true ).send({ from:walletAddress, amount:0, gasPrice:(gas*3) });
 
    await checkApproval();
 }
 
 async function checkApproval() {
    let txn = new web3.eth.Contract(PIZZA_ABI, PIZZA);
-   let isApproved = await txn.methods.isApprovedForAll( wallet, OVEN ).call();
+   let isApproved = await txn.methods.isApprovedForAll( walletAddress, OVEN ).call();
 
    if (!isApproved) {
       burnButton.innerHTML = 'APPROVE';
@@ -238,7 +241,7 @@ async function setSpendApproval() {
    let gas = await web3.eth.getGasPrice();
 
    let txn = new web3.eth.Contract(BREAD_ABI, BREAD);
-   await txn.methods.approve( SHOP, SPENDAMOUNT ).send({ from:wallet, amount:0, gasPrice:(gas*3) });
+   await txn.methods.approve( SHOP, SPENDAMOUNT ).send({ from:walletAddress, amount:0, gasPrice:(gas*3) });
 
    await allowance();
 }

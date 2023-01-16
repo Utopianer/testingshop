@@ -516,7 +516,7 @@
                       <li>
                         <a href="./account" class="dropdown-item <?= ($page == 'account') ? 'active' : ''; ?>">Account</a>
                       </li>
-                      <li><a href="#" class="dropdown-item">Logout</a></li>
+                      <!-- <li><a href="#" class="dropdown-item">Logout</a></li> -->
                     </ul>
                   </div>
                 </li>

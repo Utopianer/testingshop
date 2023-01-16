@@ -5,7 +5,7 @@ async function buyPizzas() {
 
   console.log(gas);
 
-  await txn.methods.buyPizzas( 1, 1 ).send({ from:wallets[0], amount:0, gasPrice:(gas*3)});
+  await txn.methods.buyPizzas( 1, 1 ).send({ from:walletAddress, amount:0, gasPrice:(gas*3)});
 }
 
 $(function() {

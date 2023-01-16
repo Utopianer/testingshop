@@ -1,6 +1,6 @@
       <!-- Copy Right Text -->
       <div class="copyRightText" tkey="copy_text">
-        © 2022 Made with ❤ by RareDough
+        © <script>document.write(/\d{4}/.exec(Date())[0])</script> Made with ❤ by RareDough
       </div>
     </div>
     <!-- End Body Wrapper -->
