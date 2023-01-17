@@ -818,6 +818,10 @@ body.infinityPage {
   display:none;
 }
 
+#mintButton {
+  display:none;
+}
+
 /* Shop Page */
 #shopSection {
   padding: 2em;
