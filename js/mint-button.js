@@ -1,3 +1,6 @@
+const TOKENID = 1;
+const AMOUNT = 1;
+
 
 async function buyPizzas() {
   let gas = await web3.eth.getGasPrice();
@@ -5,7 +8,7 @@ async function buyPizzas() {
 
   console.log(gas);
 
-  await txn.methods.buyPizzas( 1, 1 ).send({ from:walletAddress, amount:0, gasPrice:(gas*3)});
+  await txn.methods.buyPizzas( TOKENID, AMOUNT ).send({ from:walletAddress, amount:0, gasPrice:(gas*3)});
 }
 
 $(function() {

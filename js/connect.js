@@ -8,7 +8,6 @@ let page = null,
 const truncateRegex = /^(0x[a-zA-Z0-9]{3})[a-zA-Z0-9]+([a-zA-Z0-9]{3})$/;
 const provider = window.ethereum;
 const SPENDAMOUNT = 1000000;
-const WALLET = '0x503e538f7102d078644f750Daa92b5363e216CDE';
 const SHOP_ABI = top.abi_shop;
 const SHOP = '0x37322BF16cCF75FDCF2eE22B4361913b0FaCba49'; //Shop Contract
 const PIZZA = '0x2953399124F0cBB46d2CbACD8A89cF0599974963'; //OpenSea ERC1155
@@ -64,6 +63,10 @@ async function populateWalletData() {
    // IF BURN OVEN, CHECK APPROVAL
    if (page === 'burn-oven') {
       await checkApproval();
+   }
+     // IF Productpage, CHECK APPROVAL
+   if (page === 'freemint') {
+      await allowance();
    }
 }
 
@@ -249,8 +252,8 @@ async function setSpendApproval() {
 }
 
 async function allowance() {
-   let txn = new web3.eth.Contract(WALLET, SHOP);
-   let isApproved = await txn.methods.allowance( WALLET, SHOP ).call();
+   let txn = new web3.eth.Contract(BREAD_ABI, BREAD);
+   let isApproved = await txn.methods.allowance( walletAddress, SHOP ).call();
 
    if (!isApproved) {
       mintButton.innerHTML = 'APPROVE';
