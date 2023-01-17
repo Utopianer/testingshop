@@ -64,6 +64,10 @@ async function populateWalletData() {
    if (page === 'burn-oven') {
       await checkApproval();
    }
+  // IF Productpage, CHECK APPROVAL
+   if (page === 'freemint') {
+      await allowance();
+   }
 }
 
 async function connectWallet() {
