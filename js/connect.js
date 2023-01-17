@@ -255,7 +255,7 @@ async function allowance() {
    let txn = new web3.eth.Contract(BREAD_ABI, BREAD);
    let isApproved = await txn.methods.allowance( walletAddress, SHOP ).call();
 
-   if (!isApproved) {
+   if (isApproved < 999999) {
       mintButton.innerHTML = 'APPROVE';
       mintButton.classList.add('approve');
    }
