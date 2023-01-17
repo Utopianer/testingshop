@@ -225,9 +225,8 @@ async function checkApproval() {
       if (!isApproved) {
          burnButton.innerHTML = 'APPROVE';
          burnButton.classList.add('approve');
+         burnButton.style.display = 'inline-block';
       }
-
-      burnButton.style.display = 'inline-block';
    } else if (page === 'freemint') {
       txn = new web3.eth.Contract(BREAD_ABI, BREAD);
       isApproved = await txn.methods.allowance(walletAddress, SHOP).call();

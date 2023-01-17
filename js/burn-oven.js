@@ -161,6 +161,14 @@ $(function() {
       totalBurnValue += (value * quantity);
     });
 
+    // SHOW BURN BUTTON IF PIZZAS SELECTED OTHERWISE HIDE
+    if (totalQuantity > 0) {
+      $('#burnButton').css('display', 'inline-block');
+    } else {
+      $('#burnButton').hide();
+    }
+
+    // UPDATE QUANTITY SELECTED AND BURN VALUE
     $('#totalQuantity').text(totalQuantity);
     $('#totalBurnValue').text(totalBurnValue.toLocaleString());
   }

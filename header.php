@@ -253,9 +253,11 @@
         <br />
         <a class="hideMenuLink" tkey="get_btn" href="./vip-pass">Get Vip Pass</a>
         <br />
-        <a class="hideMenuLink" tkey="get_btn" href="./burn-oven">Burn oven</a>
+        <a class="hideMenuLink" tkey="" href="./burn-oven">Burn oven</a>
         <br />
-        <a class="hideMenuLink" tkey="get_btn" href="./shop">Shop</a>
+        <a class="hideMenuLink" tkey="leaderboard" href="./leaderboard">Leaderboard</a>
+        <br />
+        <a class="hideMenuLink" tkey="shop" href="./shop">Shop</a>
         <div class="socialIcons">
           <a
             class=""
@@ -315,10 +317,10 @@
                 <a tkey="" class="nav-link" href="./burn-oven.php">Burn oven</a>
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="./leaderboard.php">Leaderboard</a>
+                <a tkey="leaderboard" class="nav-link" href="./leaderboard.php">Leaderboard</a>
               </li>
               <li class="nav-item">
-                <a tkey="" class="nav-link" href="./shop.php">Shop</a>
+                <a tkey="shop" class="nav-link" href="./shop.php">Shop</a>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
