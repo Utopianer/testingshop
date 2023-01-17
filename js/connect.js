@@ -1,5 +1,4 @@
-let page = null,
-    web3 = null,
+let web3 = null,
     walletAddress = null,
     chainID = null,
     pizzaHoldings = [];
@@ -19,10 +18,6 @@ const OVEN = '0x7e410FcF59dd30bC09E9ad21b008D36b907fC86B'; //Oven address
 const OVEN_ABI = top.abi_oven;      
 const LIBRARY = top.pizzalib;
 const inventoryContainer = document.getElementById('inventoryContainer');
-
-if (inventoryContainer) {
-   page = inventoryContainer.dataset.page
-}
 
 if (provider) {
    web3 = new Web3(window.ethereum);
@@ -60,13 +55,9 @@ async function populateWalletData() {
    //PULL PIZZA DATA AND STORE IT LOCALLY
    await getUserAssets();
 
-   // IF BURN OVEN, CHECK APPROVAL
-   if (page === 'burn-oven') {
+   // IF BURN OVEN OR FREEMINT, CHECK APPROVAL
+   if (page === 'burn-oven' || page === 'freemint') {
       await checkApproval();
-   }
-  // IF Productpage, CHECK APPROVAL
-   if (page === 'freemint') {
-      await allowance();
    }
 }
 
@@ -222,15 +213,32 @@ async function setApproval() {
 }
 
 async function checkApproval() {
-   let txn = new web3.eth.Contract(PIZZA_ABI, PIZZA);
-   let isApproved = await txn.methods.isApprovedForAll( walletAddress, OVEN ).call();
+   let txn = null,
+       isApproved = null;
 
-   if (!isApproved) {
-      burnButton.innerHTML = 'APPROVE';
-      burnButton.classList.add('approve');
+   if (page === 'burn-oven') {
+      txn = new web3.eth.Contract(PIZZA_ABI, PIZZA);
+      isApproved = await txn.methods.isApprovedForAll(walletAddress, OVEN).call();
+
+      console.log(isApproved);
+
+      if (!isApproved) {
+         burnButton.innerHTML = 'APPROVE';
+         burnButton.classList.add('approve');
+      }
+
+      burnButton.style.display = 'inline-block';
+   } else if (page === 'freemint') {
+      txn = new web3.eth.Contract(BREAD_ABI, BREAD);
+      isApproved = await txn.methods.allowance(walletAddress, SHOP).call();
+
+      if (isApproved < 999999) {
+         mintButton.innerHTML = 'APPROVE';
+         mintButton.classList.add('approve');
+      }
+
+      mintButton.style.display = 'inline-block';
    }
-
-   burnButton.style.display = 'inline-block';
 }
 
 $(function() {
@@ -243,23 +251,14 @@ $(function() {
    checkConnection();
 });
 
-async function setSpendApproval() {
-   let gas = await web3.eth.getGasPrice();
+// async function allowance() {
+//    let txn = new web3.eth.Contract(BREAD_ABI, BREAD);
+//    let isApproved = await txn.methods.allowance( walletAddress, SHOP ).call();
 
-   let txn = new web3.eth.Contract(BREAD_ABI, BREAD);
-   await txn.methods.approve( SHOP, SPENDAMOUNT ).send({ from:walletAddress, amount:0, gasPrice:(gas*3) });
+//    if (isApproved < 999999) {
+//       mintButton.innerHTML = 'APPROVE';
+//       mintButton.classList.add('approve');
+//    }
 
-   await allowance();
-}
-
-async function allowance() {
-   let txn = new web3.eth.Contract(BREAD_ABI, BREAD);
-   let isApproved = await txn.methods.allowance( walletAddress, SHOP ).call();
-
-   if (isApproved < 999999) {
-      mintButton.innerHTML = 'APPROVE';
-      mintButton.classList.add('approve');
-   }
-
-   mintButton.style.display = 'inline-block';
-}
+//    mintButton.style.display = 'inline-block';
+// }

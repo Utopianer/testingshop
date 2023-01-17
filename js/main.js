@@ -54,6 +54,9 @@ window.addEventListener("scroll",()=>{
   }
 })
 
+// get page
+const page = document.body.dataset.page;
+
 // copy text
 document.querySelectorAll('.copyTextTrigger').forEach(el => {
   el.addEventListener('click', e => {

@@ -21,7 +21,7 @@
             <h2 id="totalInventoryQuantity" class="itemHeading">(<span></span> items)</h2>
           </div>
           <div class="itemContainerBody">
-            <div id="inventoryContainer" data-page="<?= $page; ?>" class="row g-2">
+            <div id="inventoryContainer" class="row g-2">
               <div class="col-3">
                 <div class="itemImageParent inventoryItem disabled">
                   <img

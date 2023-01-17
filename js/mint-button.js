@@ -1,6 +1,14 @@
 const TOKENID = 1;
 const AMOUNT = 1;
 
+async function setSpendApproval() {
+  let gas = await web3.eth.getGasPrice();
+
+  let txn = new web3.eth.Contract(BREAD_ABI, BREAD);
+  await txn.methods.approve( SHOP, SPENDAMOUNT ).send({ from:walletAddress, amount:0, gasPrice:(gas*3) });
+
+  await allowance();
+}
 
 async function buyPizzas() {
   let gas = await web3.eth.getGasPrice();

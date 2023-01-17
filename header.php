@@ -107,7 +107,7 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body class="<?= $page; ?>">
+  <body class="<?= $page; ?>" data-page="<?= $page; ?>">
     <!-- Hide Menu -->
     <div id="mobHideMenu" class="hideMenu">
       <div class="hideMenuHeader">
