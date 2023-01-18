@@ -12,9 +12,9 @@ async function setSpendApproval() {
 async function buyPizzas() {
   let gas = await web3.eth.getGasPrice();
   let txn = new web3.eth.Contract(SHOP_ABI, SHOP);
-  let id = mintButton.dataset.id;
+  let TOKENID = mintButton.dataset.id;
 
-  console.log(gas);
+  console.log(TOKENID);
 
   await txn.methods.buyPizzas( TOKENID, AMOUNT ).send({ from:walletAddress, amount:0, gasPrice:(gas*3)});
 }
