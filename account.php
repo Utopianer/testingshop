@@ -6,17 +6,26 @@
       <div class="accountInfo">
         <div class="row">
           <div class="col-lg-4">
+
+          <!--
+            
             <img src="./img/profileImg.png" alt="" class="profileImg" />
+            
+           -->
+            
             <div class="subHeading">
-              <span>Account Name</span
-              ><img src="./img/Pen.svg" alt="" class="ms-2" />
+              <span>Wallet address:</span>
+             <!-- <img src="./img/Pen.svg" alt="" class="ms-2" /> -->
             </div>
+            
             <div class="mainText">
               <div id="walletCont" class="copyTextTrigger">
                 <span class="wallet-address copyText"></span>
                 <img src="./img/Copy.svg" alt="" class="ms-2 copyIcon" />
               </div>
             </div>
+
+            
           </div>
           <div class="col-lg-4 my-lg-auto">
             <div class="balance">
@@ -33,7 +42,7 @@
                 Engagement Points
                 <span>Rank #999</span>
               </div>
-              <div class="subHeading yourAccount engagement-points">10,000.00</div>
+              <div class="subHeading yourAccount engagement-points">Coming Soon</div>
             </div>
           </div>
         </div>
@@ -49,6 +58,7 @@
               <span class="mainText pizza-bread-value">0</span>
             </div>
           </div>
+          <!--
           <div class="dropdown newestDropdown desktopView">
             <button
               class="btn btn-secondary dropdown-toggle"
@@ -68,6 +78,8 @@
               </li>
             </ul>
           </div>
+
+           load more -->
         </div>
         <div class="inventoryBody">
           <div class="mobileView">
@@ -78,6 +90,9 @@
                   ><span class="mainText pizza-bread-value">0</span>
                 </div>
               </div>
+
+              <!--
+              
               <div class="col text-end">
                 <div class="dropdown newestDropdown">
                   <button
@@ -105,6 +120,8 @@
                   </ul>
                 </div>
               </div>
+
+                  -->
             </div>
           </div>
 

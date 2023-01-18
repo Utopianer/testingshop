@@ -7,16 +7,19 @@
                     <div class="sideMenu">
                         <!-- desktopView -->
                         <div class="sideMenuLinks desktopView">
-                            <a class="sideMenuLink" href="./shop">All Items</a>
-                            <a class="sideMenuLink" href="./whitelist">Whitelist</a>
-                            <a class="sideMenuLink" href="./limited-editions">Limited Editions</a>
-                            <a class="sideMenuLink" href="./custom-pizza">Custom Pizzas</a>
-                            <a class="sideMenuLink active" href="./utilities">Utilities</a>
+                            <a class="sideMenuLink" href="./shop.php">All Items</a>
+                            <a class="sideMenuLink" href="./whitelist.php">Whitelist</a>
+                            <a class="sideMenuLink" href="./limited-editions.php">Limited Editions</a>
+                            <a class="sideMenuLink" href="./custom-pizza.php">Custom Pizzas</a>
+                            <a class="sideMenuLink active" href="./utilities.php">Utilities</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-10 py-lg-5 ps-lg-4">
                     <div class="row">
+
+                      <!--
+                      
                         <div class="col-lg-3">
                             <div class="searchArea">
                                 <input type="text" placeholder="search">
@@ -33,6 +36,9 @@
                                 </ul>
                             </div>
                         </div>
+
+                      -->
+                      
                     </div>
                     <div id="shopContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5"></div>
                 </div>

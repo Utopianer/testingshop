@@ -1,6 +1,6 @@
 <?php include 'header.php';?>
 
-<h1 class="mainHeading">Engagement <br class="mobileView"/> Leaderboard</h1>
+<h1 class="mainHeading">Engagement <br class="mobileView"/> Leaderboard (coming soon)</h1>
 <div class="container">
   <div class="row">
     <div class="col-lg-8 mx-auto">

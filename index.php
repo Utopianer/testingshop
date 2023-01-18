@@ -20,14 +20,14 @@
       </a>
       <a
         class="homeSocialLink odd"
-        href="https://twitter.com/BOREDpizzas"
+        href="https://twitter.com/RareDough"
         target="_blank"
       >
         <img src="./img/home-twitter-icon.png" alt="Twitter Icon" />
       </a>
       <a
         class="homeSocialLink"
-        href="https://discord.gg/boredpizzas"
+        href="https://discord.com/invite/GbwykC99N6"
         target="_blank"
       >
         <img src="./img/home-discord-icon.png" alt="Discord Icon" />

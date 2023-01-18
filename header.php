@@ -251,13 +251,13 @@
       <div class="hideMenuBody">
         <a class="hideMenuLink" tkey="" href="./">Home</a>
         <br />
-        <a class="hideMenuLink" tkey="get_btn" href="./vip-pass">Get Vip Pass</a>
+        <a class="hideMenuLink" tkey="get_btn" href="./vip-pass.php">Get Vip Pass</a>
         <br />
-        <a class="hideMenuLink" tkey="" href="./burn-oven">Burn oven</a>
+        <a class="hideMenuLink" tkey="" href="./burn-oven.php">Burn oven</a>
         <br />
-        <a class="hideMenuLink" tkey="leaderboard" href="./leaderboard">Leaderboard</a>
+        <a class="hideMenuLink" tkey="leaderboard" href="./leaderboard.php">Leaderboard</a>
         <br />
-        <a class="hideMenuLink" tkey="shop" href="./shop">Shop</a>
+        <a class="hideMenuLink" tkey="shop" href="./shop.php">Shop</a>
         <div class="socialIcons">
           <a
             class=""
@@ -268,12 +268,12 @@
           </a>
           <a
             class="mx-2"
-            href="https://twitter.com/BOREDpizzas"
+            href="https://twitter.com/RareDough"
             target="_blank"
           >
             <img src="./img/twitter-icon.png" alt="Twitter Icon" />
           </a>
-          <a href="https://discord.gg/boredpizzas" target="_blank">
+          <a href="https://discord.com/invite/GbwykC99N6" target="_blank">
             <img src="./img/discrod-icon.png" alt="Discord Icon" />
           </a>
         </div>
@@ -335,7 +335,7 @@
               <li class="nav-item">
                 <a
                   class="nav-link px-0"
-                  href="https://twitter.com/BOREDpizzas"
+                  href="https://twitter.com/RareDough"
                   target="_blank"
                   ><img src="./img/twitter-icon.png" alt=""
                 /></a>
@@ -343,7 +343,7 @@
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="https://discord.gg/boredpizzas"
+                  href="https://discord.com/invite/GbwykC99N6"
                   target="_blank"
                   ><img src="./img/discrod-icon.png" alt=""
                 /></a>
@@ -519,7 +519,7 @@
                         /><span class="bread-balance">0</span>
                       </span>
                       <li>
-                        <a href="./account" class="dropdown-item <?= ($page == 'account') ? 'active' : ''; ?>">Account</a>
+                        <a href="./account.php" class="dropdown-item <?= ($page == 'account') ? 'active' : ''; ?>">Account</a>
                       </li>
                       <!-- <li><a href="#" class="dropdown-item">Logout</a></li> -->
                     </ul>

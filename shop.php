@@ -17,12 +17,18 @@
                 </div>
                 <div class="col-lg-10 py-lg-5 ps-lg-4">
                     <div class="row">
+
+                        <!--
+                        
                         <div class="col-lg-3">
                             <div class="searchArea">
                                 <input type="text" placeholder="search">
                                 <img src="./img/search-icon.svg" alt="">
                             </div>
                         </div>
+
+                        
+                      
                         <div class="col-lg-2 ms-auto text-end mt-2 mt-lg-0">
                             <div class="dropdown newestDropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">Newest</button>
@@ -33,6 +39,9 @@
                                 </ul>
                             </div>
                         </div>
+
+                        -->
+                      
                     </div>
                     <div id="shopContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5"></div>
                 </div>
