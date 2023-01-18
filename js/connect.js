@@ -6,7 +6,7 @@ let web3 = null,
 
 const truncateRegex = /^(0x[a-zA-Z0-9]{3})[a-zA-Z0-9]+([a-zA-Z0-9]{3})$/;
 const provider = window.ethereum;
-const SPENDAMOUNT = 1000000;
+const SPENDAMOUNT = 1000000000000000000000;
 const SHOP_ABI = top.abi_shop;
 const SHOP = '0x37322BF16cCF75FDCF2eE22B4361913b0FaCba49'; //Shop Contract
 const PIZZA = '0x2953399124F0cBB46d2CbACD8A89cF0599974963'; //OpenSea ERC1155
@@ -233,7 +233,7 @@ async function checkApproval() {
 
       console.log(isApproved);
 
-      if (isApproved < 999999) {
+      if (isApproved < 999999999999999999999) {
          mintButton.innerHTML = 'APPROVE';
          mintButton.classList.add('approve');
       }
