@@ -55,8 +55,8 @@ async function populateWalletData() {
    //PULL PIZZA DATA AND STORE IT LOCALLY
    await getUserAssets();
 
-   // IF BURN OVEN OR FREEMINT, CHECK APPROVAL
-   if (page === 'burn-oven' || page === 'freemint') {
+   // IF BURN OVEN OR PRODUCTPAGE, CHECK APPROVAL
+   if (page === 'burn-oven' || page === 'freemint' || $page === 'infinity' || $page === 'whitelist-lvl1' || $page === 'whitelist-lvl2' || $page === 'whitelist-lvl3') {
       await checkApproval();
    }
 }
@@ -227,7 +227,7 @@ async function checkApproval() {
          burnButton.classList.add('approve');
          burnButton.style.display = 'inline-block';
       }
-   } else if (page === 'freemint') {
+   } else if (page === 'freemint' || $page === 'infinity' || $page === 'whitelist-lvl1' || $page === 'whitelist-lvl2' || $page === 'whitelist-lvl3') {
       txn = new web3.eth.Contract(BREAD_ABI, BREAD);
       isApproved = await txn.methods.allowance(walletAddress, SHOP).call();
 

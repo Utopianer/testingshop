@@ -57,7 +57,7 @@
       <script src="./js/burn-oven.js"></script>
     <?php endif; ?>
 
-    <?php if ($page == 'freemint'): ?>
+    <?php if ($page == 'freemint' || $page == 'infinity' || $page == 'whitelist-lvl1' || $page == 'whitelist-lvl2' || $page == 'whitelist-lvl3'): ?>
       <script src="./js/mint-button.js"></script>
     <?php endif; ?>
 

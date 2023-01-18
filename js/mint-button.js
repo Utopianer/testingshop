@@ -1,4 +1,3 @@
-const TOKENID = 1;
 const AMOUNT = 1;
 
 async function setSpendApproval() {
@@ -13,6 +12,7 @@ async function setSpendApproval() {
 async function buyPizzas() {
   let gas = await web3.eth.getGasPrice();
   let txn = new web3.eth.Contract(SHOP_ABI, SHOP);
+  let id = mintButton.dataset.id;
 
   console.log(gas);
 
