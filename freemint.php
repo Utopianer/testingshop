@@ -1,16 +1,19 @@
 <?php include 'header.php';?>
+<script src="js/product.js"></script>
+
+<?php $itemName = ''; $itemDescription = ''; $itemPrice = ''; $itemImage = ''; ?>
 
       <!-- Infinity Section -->
       <section class="infinitySection item">
         <!-- mobile view -->
         <div class="mobileView">
           <div class="container text-start">
-            <h1 tkey="nft_heading" class="mainHeading">Free Mint</h1>
+            <h1 class="mainHeading itemHeading"><?= $itemName ?></h1>
             <a class="imageLink" href="#">
               <img
                 class="pizzaImg"
-                src="./assets/images/1.png"
-                alt="Free Mint Pizza"
+                  src="<?= $itemImage ?>"
+                  alt="<?= $itemName ?>"
               />
             </a>
           </div>
@@ -23,27 +26,22 @@
               <a class="imageLink" href="#">
                 <img
                   class="pizzaImg"
-                  src="./assets/images/1.png"
-                  alt="Free Mint Pizza"
+                  src="<?= $itemImage ?>"
+                  alt="<?= $itemName ?>"
                 />
               </a>
             </div>
             <div class="col-lg-7">
               <div class="desktopView">
-                <h1 tkey="nft_heading" class="mainHeading">Free Mint</h1>
+                <h1 class="mainHeading itemHeading"><?= $itemName ?></h1>
               </div>
               <div class="row">
                 <div class="col-lg-12">
                   <div class="description mt-5 mb-5 mt-lg-0 mb-lg-0">
                     <h1 class="subHeading">Description</h1>
                     <div class="descriptionBody">
-                      <p class="mainText">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut labore et
-                        dolore magna aliquyam erat, sed diam voluptua. At vero
-                        eos et accusam et justo duo dolores et ea rebum.
-                      </p>
-                      <div class="mainText">Current Price</div>
+                      <p class="mainText itemDescription"><?= $itemDescription ?></p>
+                      <div class="mainText itemPrice "><?= $itemPrice ?></div>
                       <h1 class="mainHeading">
                         <img src="./img/bpac-lg-icon.svg" alt="" /> 0
                       </h1>
@@ -68,20 +66,6 @@
                   <div class="collapse" id="property">
                     <div class="card card-body">
                       <div class="cardContainer">
-                        <div class="row">
-                         <div class="col">
-                           <div class="collapesCard">
-                             <div class="smText">Background</div>
-                             <div class="mainText">Background</div>
-                           </div>
-                         </div>
-                         <div class="col">
-                           <div class="collapesCard">
-                             <div class="smText">Background</div>
-                             <div class="mainText">Background</div>
-                           </div>
-                         </div>
-                        </div>
                         <div class="row">
                          <div class="col">
                            <div class="collapesCard">

@@ -37,6 +37,7 @@
     $description = 'This is the meta description for the Whitelist lvl3';
   endif;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

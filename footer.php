@@ -60,5 +60,6 @@
     <?php if ($page == 'freemint'): ?>
       <script src="./js/mint-button.js"></script>
     <?php endif; ?>
+
   </body>
 </html>
