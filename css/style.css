@@ -522,7 +522,7 @@ a.link {
 
 /* Home */
 body.home {
-  background-image: url("../img/home-bg.png");
+  background-image: url("../img/home-bg.jpg");
   max-height: 100vh;
   overflow-y: hidden !important;
 }
