@@ -45,7 +45,7 @@
       <script src="./js/leaderboard.js"></script>
     <?php endif; ?>
 
-    <?php if ($page == 'shop' || $page == 'utilities' || $page == 'whitelist'): ?>
+    <?php if ($page == 'shop' || $page == 'utilities' || $page == 'whitelist' || $page == 'limited-editions' || $page == 'custom-pizza'): ?>
       <script src="./js/shop.js"></script>
     <?php endif; ?>
 
