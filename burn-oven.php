@@ -248,8 +248,8 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 text-center desktopView">
-        <h1 class="commonHeading mb-3">Burn oven</h1>
+      <div class="col-lg-4 mt-5 text-center">
+        <h1 class="commonHeading mb-3 desktopView">Burn oven</h1>
         <p class="commonText">
           By clicking approve, you are granting access to
           <span>ALL NFTs</span> you currently own until you
